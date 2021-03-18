@@ -1,0 +1,56 @@
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    font-family: "Nunito Sans";
+}
+
+.form-control {
+    line-height: 2;
+}
+
+.bg-custom {
+    background-color: #C8C8A9;
+}
+
+.btn-custom {
+    background-color: #83AF9B;
+    color: #fff;
+}
+
+.btn-custom:hover {
+    background-color: #FE4365;
+    color: #fff;
+}
+
+label {
+    color: #000000;
+}
+
+a,
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+@media(max-width: 932px) {
+    .display-none {
+        display: none !important;
+    }
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+.image-preview{
+    height: 5rem;
+    margin: 1rem 0;
+}
+.image-preview img{
+    height: 100%;
+}

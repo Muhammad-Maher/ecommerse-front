@@ -1,0 +1,19 @@
+li:hover{
+    cursor: pointer;
+}
+
+
+  .bg-light {
+    background-color: #9fb8ad !important;
+}
+
+.btn-outline-primary {
+    color: black;
+    border-color: #1e212d;
+}
+.btn-outline-primary:hover {
+    
+    color: #fff;
+    background-color:#1e212d;
+    border-color:#1e212d;
+}

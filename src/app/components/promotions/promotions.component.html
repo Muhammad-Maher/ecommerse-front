@@ -1,1 +1,33 @@
-<p>promotions works!</p>
+<div class="container ">
+
+    <div class="card text-center m-3 ">
+        <h3 class="card-header">Promotions</h3>
+        <div class="card-body ">
+            <div class="row" *ngIf="promotionsList && promotionsList[0]">
+                <div class="col-sm-4" *ngFor="let item of promotionsList  | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                    <div class="card mb-4" style="width: 18rem;">
+                        <img [src]="item.img" class="card-img-top  card-img-top" [alt]="item.name">
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.name}}</h5>
+                            <p class="card-text">{{item.status}} | price:{{item.Price}} </p>
+                            <p>
+                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here,
+                                content here', making it look like readable English.
+                            </p>
+
+                            <a routerLink="/product/{{item.resturantID._id}}/{{item._id}}" class="btn btn-primary">See More</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <!-- <div class="card-footer pb-0 pt-3">
+                <ngb-pagination [collectionSize]="promotionsList.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+            </div> -->
+        </div>
+    </div>
+
+</div>

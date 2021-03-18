@@ -1,9 +1,31 @@
-<h1>Angular Router App</h1>
 <!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
-<nav>
-    <ul>
-        <li><a routerLink="/promotions" routerLinkActive="active">promotions</a></li>
-    </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand " routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">e food</a>
+    <button class=" navbar-toggler " type="button " data-toggle="collapse " data-target="#navbarNavAltMarkup " aria-controls="navbarNavAltMarkup " aria-expanded="false " aria-label="Toggle navigation ">
+      <span class="navbar-toggler-icon "></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNavAltMarkup ">
+        <div class="navbar-nav ">
+            <a class="nav-item nav-link active " routerLink="/" routerLinkActive="active " [routerLinkActiveOptions]="{exact: true}">Home</a>
+            <a class=" nav-item nav-link " routerLink="/promotions" routerLinkActive="active ">promotions</a>
+            <a class="nav-item nav-link " routerLink="/about" routerLinkActive="active ">about</a>
+            <a class="nav-item nav-link " routerLink="/signup" routerLinkActive="active ">signUp</a>
+            <a class="nav-item nav-link " routerLink="/sfas" routerLinkActive="active ">Error</a>
+        </div>
+    </div>
 </nav>
+
+
+
+
+<!-- <nav>
+    <ul>
+        <li><a class="nav-item nav-link active " routerLink="/ " routerLinkActive="active ">Home</a></li>
+        <li><a class="nav-item nav-link " routerLink="/promotions " routerLinkActive="active ">promotions</a></li>
+        <li><a class="nav-item nav-link " routerLink="/about " routerLinkActive="active ">about</a></li>
+        <li><a class="nav-item nav-link " routerLink="/sfas " routerLinkActive="active ">Error</a></li>
+    </ul>
+</nav> -->
+
 <!-- The routed views render in the <router-outlet>-->
 <router-outlet></router-outlet>
