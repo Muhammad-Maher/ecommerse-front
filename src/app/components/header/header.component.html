@@ -1,56 +1,61 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">ElAkeeel</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="row w-100 d-flex justify-content-around">
+            <a class="navbar-brand " href="#">ElAkeeel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="allProducts">Home <span
+            </button>
+            <div class="collapse navbar-collapse w-75 d-flex justify-content-around" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="allProducts">Home <span
                             class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/about">About</a>
-                </li>
-                <!-- <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/about">About</a>
+                    </li>
+                    <!-- <li class="nav-item">
                     <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/restaurants">Restaurants</a>
                 </li> -->
 
-                <li *ngIf="this.token" class="nav-item">
-                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/profile">Profile</a>
-                </li>
-                <li *ngIf="this.token" class="nav-item">
-                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/cart">Cart</a>
-                </li>
-                <li *ngIf="this.token" class="nav-item">
-                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/userorder">UserOrder</a>
-                </li>
-                <li *ngIf="this.token" class="nav-item">
-                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/profile">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/promotions">Promotions</a>
-                </li>
-                <li *ngIf="this.token" class="nav-item">
-                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/addproduct">AddProduct</a>
-                </li>
-                <li *ngIf="this.token" class="nav-item">
-                    <button type="button" class="btn btn-outline-primary" (click)="logOut()">LogOut</button>
-                </li>
-                <li *ngIf="!this.token" class="nav-item mr-3">
-                    <a class="btn btn-outline-primary" [routerLinkActive]="['exact:true']" routerLink="/login">Log in</a>
-                </li>
+                    <li *ngIf="this.token" class="nav-item">
+                        <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/profile">Profile</a>
+                    </li>
+                    <li *ngIf="this.token" class="nav-item">
+                        <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/cart">Cart</a>
+                    </li>
+                    <li *ngIf="this.token" class="nav-item">
+                        <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/userorder">UserOrder</a>
+                    </li>
+                    <li *ngIf="this.token" class="nav-item">
+                        <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/promotions">Promotions</a>
+                    </li>
+                    <li *ngIf="this.token" class="nav-item">
+                        <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/addproduct">AddProduct</a>
+                    </li>
+                    <li *ngIf="!this.token" class="nav-item mr-3">
+                        <a class="btn btn-outline-primary" [routerLinkActive]="['exact:true']" routerLink="/login">Log in</a>
+                    </li>
+                    <li *ngIf="!this.token" class="nav-item">
+                        <a class="btn btn-outline-primary" [routerLinkActive]="['exact:true']" routerLink="/signup">Sign Up</a>
+                    </li>
+                </ul>
 
-                <li *ngIf="!this.token" class="nav-item">
-                    <a class="btn btn-outline-primary" [routerLinkActive]="['exact:true']" routerLink="/signup">Sign Up</a>
-                </li>
-            </ul>
-
-            <form class=" d-flex navbar-right" style="margin-left: 35rem;" [formGroup]="myform" (ngSubmit)="getProductsByName()">
-                <input class="form-control me-2 inputSearch" formControlName="body" (mousedown)="checkToken()" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-dark" type="submit">Search</button>
-            </form>
+                <ul class="navbar-nav ml-5">
+                    <li *ngIf="this.token" class="nav-item mr-3">
+                        <button type="button" class="btn btn-outline-primary" (click)="logOut()">LogOut</button>
+                    </li>
+                    <li>
+                        <form class=" d-flex   mr-auto" [formGroup]="myform" (ngSubmit)="getProductsByName()">
+                            <input class="form-control me-2 inputSearch" formControlName="body" (mousedown)="checkToken()" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-dark" type="submit">Search</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
 
         </div>
 
