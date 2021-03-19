@@ -1,15 +1,11 @@
-.fa-tags {
-    color: rgb(40, 207, 40);
-}
-
-.fa-utensils {
-    color: rgb(90, 90, 211);
-}
-
 .card-img-top {
     width: 100%;
     height: 15vw;
     object-fit: cover;
+}
+
+.fa-utensils {
+    color: rgb(90, 90, 211);
 }
 
 .pagination {

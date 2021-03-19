@@ -13,7 +13,8 @@ export class SignUpComponent implements OnInit,OnDestroy {
 
   signupForm: FormGroup
   myImagePreview:string
-
+  avatar;
+  prp;
   private errorSub: Subscription;
   error= null
 
@@ -46,22 +47,38 @@ export class SignUpComponent implements OnInit,OnDestroy {
 
   //////////Submit
   onSubmit(){
-    console.log(this.signupForm);
-    this.myService.AddUser(this.signupForm)
+    let postUser = new FormData();
+    postUser.append("avatar",this.avatar);        
+    postUser.append("username",this.signupForm.get('username').value);
+    postUser.append("Password",this.signupForm.get('password').value);
+    postUser.append("mail",this.signupForm.get('email').value);
+    postUser.append("gender","M");
+    postUser.append("fname",this.signupForm.get('fname').value);
+    postUser.append("lname",this.signupForm.get('lname').value);
+    postUser.append("Phone",this.signupForm.get('phone').value);  
+    postUser.append("governorater",this.signupForm.get('gover').value);       
+    postUser.append("Address",this.signupForm.get('address').value);
+    postUser.append("country","Egypt");
+    postUser.append("status","user");
+    // postUser.append("BrandID","");
+      
+    this.myService.AddUser(postUser).subscribe(data => {
+      this.prp = data;
+    })
   }
 
   /////////upload Image
+  
 
-  onImageUploaded(event: Event){
-    const file= (event.target as HTMLInputElement).files[0];
-    this.signupForm.patchValue({'image': file});
-    this.signupForm.get('image').updateValueAndValidity();
-    const reader= new FileReader();
-    reader.onload=()=>{
-      this.myImagePreview=reader.result as string;
-    }
+  onImageUploaded(val){
+    this.avatar = val.target.files[0]
+    
+    const file = (val.target as HTMLInputElement).files[0];
+    const reader = new FileReader();    
     reader.readAsDataURL(file);
+   
   }
+
 
   charOnly(control: FormControl): { [s: string]: boolean } {
     let letters = /^[A-Za-z]+$/;

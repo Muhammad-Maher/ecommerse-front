@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {getItems} from 'src/app/services/getItems.service'
+import {ProductService} from 'src/app/services/product.service'
 
 
 
@@ -13,35 +13,41 @@ export class PromotionsComponent implements OnInit {
   
  
 
-  constructor(private promtions:getItems) { }
-  promotionsList
-  page = 1;
-  pageSize =10
+  constructor(private promtions:ProductService) { }
+  promotionsList 
+  items
+  subscriber
+  // pageSizeOptions
+  // pageSize
+  // length
 
   ngOnInit(): void {
 
-    let subscriber = this.promtions.getPromotions()
+     this.subscriber = this.promtions.getPromotions()
       .subscribe((res)=>{
-      this.promotionsList = res.body;
+      this.promotionsList = res;
+      this.items = this.promotionsList
       console.log(res);
+      console.log(this.promotionsList)
     },
     (error)=>{
       console.log(error)
     })
-
     
-    console.log(this.promotionsList);
+    // console.log(this.promotionsList);
     
-
-    // // an example array of 150 items to be paged
-    // this.items = Array(150).fill(0).map((x, i) => ({ id: (i + 1), name: `Item ${i + 1}`}));
-
-
 
   }
 
+  onPageChange($event) {
+    this.items =  this.promotionsList.slice($event.pageIndex*$event.pageSize,
+    $event.pageIndex*$event.pageSize + $event.pageSize);
+  }
 
 
+  ngOnDestroy(){
+    this.subscriber.unsubscribe();
+  }
 
 
 }

@@ -1,0 +1,20 @@
+input[type="file"] {
+    visibility: hidden;
+  }
+  
+.pickImg{
+    margin-bottom: 1rem;
+  }
+  
+  .divBtn{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  
+  textarea{
+      resize: none;
+  }
+
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+  border: 1px solid red;
+}

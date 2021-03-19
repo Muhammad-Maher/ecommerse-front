@@ -1,9 +1,9 @@
 <div class="container ">
 
     <div class="card text-center m-3 ">
-        <h3 class="card-header">Promotions</h3>
+        <h3 class="card-header">All Products</h3>
         <div class="card-body ">
-            <div class="row d-flex justify-content-center align-items-center" *ngIf="promotionsList && promotionsList[0]">
+            <div class="row d-flex justify-content-center align-items-center" *ngIf="AllProducts && AllProducts[0]">
                 <div class="row w-100 m-4">
                     <mat-paginator (page)="onPageChange($event)" [length]="100" [pageSize]="6" [pageSizeOptions]="[3, 6, 24, 
                     18]"></mat-paginator>
@@ -16,11 +16,12 @@
                             <img [src]="item.img" class="card-img-top  card-img-top" [alt]="item.name">
                             <div class="card-body">
                                 <h5 class="card-title">{{item.name}}</h5>
-                                <p class="card-text"><i class="fas fa-tags"></i> {{item.status}} | price:{{item.Price}} </p>
+                                <p class="card-text">{{item.status}} | price:{{item.Price}} </p>
                                 <p>
                                     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here,
                                     content here', making it look like readable English.
                                 </p>
+
                                 <div>
                                     <i class="fas fa-utensils mr-2"></i>
                                     <span><h3 style="display: inline-block;">{{item.resturantID.Name}}</h3></span>

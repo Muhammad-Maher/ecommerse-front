@@ -5,10 +5,8 @@
     <div class="col p-5 bg-custom d-flex justify-content-center align-items-center flex-column w-100">
         <form class="w-75" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
             <div class="mb-3 form-group">
-                <input type="text" formControlName="username" class="form-control" id="exampleFormControlInput1"
-                    placeholder="User Name">
-                <span *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched"
-                    class="help-block">
+                <input type="text" formControlName="username" class="form-control" id="exampleFormControlInput1" placeholder="User Name">
+                <span *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched" class="help-block">
                     <span *ngIf="signupForm.get('username').errors['required']">
                         This field is required
                     </span>
@@ -20,11 +18,10 @@
                     <span *ngIf="signupForm.get('fname').errors['required']">
                         This field is required
                     </span>
-                    <span *ngIf="signupForm.get('fname').errors['name has numbers']">
+                <span *ngIf="signupForm.get('fname').errors['name has numbers']">
                         Name Shouldn't contain numbers
                     </span>
-                    <span
-                        *ngIf="signupForm.get('fname').errors['minlength'] || signupForm.get('fname').errors['maxlength']">
+                <span *ngIf="signupForm.get('fname').errors['minlength'] || signupForm.get('fname').errors['maxlength']">
                         Enter Valid name with minLength equal and maxLength equal 8
                     </span>
                 </span>
@@ -35,36 +32,32 @@
                     <span *ngIf="signupForm.get('lname').errors['required']">
                         This field is required
                     </span>
-                    <span *ngIf="signupForm.get('lname').errors['name has numbers']">
+                <span *ngIf="signupForm.get('lname').errors['name has numbers']">
                         Name Shouldn't contain numbers
                     </span>
-                    <span
-                        *ngIf="signupForm.get('lname').errors['minlength'] || signupForm.get('lname').errors['maxlength']">
+                <span *ngIf="signupForm.get('lname').errors['minlength'] || signupForm.get('lname').errors['maxlength']">
                         Enter Valid name with minLength equal and maxLength equal 8
                     </span>
                 </span>
             </div>
             <div class="mb-3 form-group">
-                <input type="email" id="email" class="form-control" name="email" formControlName="email"
-                    placeholder="Mail">
+                <input type="email" id="email" class="form-control" name="email" formControlName="email" placeholder="Mail">
                 <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched" class="help-block">
                     <span *ngIf="signupForm.get('email').errors['required']">
                         This field is required
                     </span>
-                    <span *ngIf="signupForm.get('email').errors['email']">
+                <span *ngIf="signupForm.get('email').errors['email']">
                         Please enter Valid Mail: test@site.com
                     </span>
                 </span>
             </div>
             <div class="mb-3 form-group">
-                <input type="password" id="password" class="form-control" name="password" formControlName="password"
-                    formControlName="password" placeholder="Password">
-                <span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched"
-                    class="help-block">
+                <input type="password" id="password" class="form-control" name="password" formControlName="password" formControlName="password" placeholder="Password">
+                <span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched" class="help-block">
                     <span *ngIf="signupForm.get('password').errors['required']">
                         This field is required
                     </span>
-                    <span *ngIf="signupForm.get('password').errors['minlength']">
+                <span *ngIf="signupForm.get('password').errors['minlength']">
                         Enter Valid Pass with minLength equal 8
                     </span>
                 </span>
@@ -75,10 +68,10 @@
                     <span *ngIf="signupForm.get('phone').errors['required']">
                         This field is required and should be chars only
                     </span>
-                    <span *ngIf="signupForm.get('phone').errors['age has chars']">
+                <span *ngIf="signupForm.get('phone').errors['age has chars']">
                         Phone should be numbers only
                     </span>
-                    <span *ngIf="signupForm.get('phone').errors['minlength'] || signupForm.get('phone').errors['maxlength']">
+                <span *ngIf="signupForm.get('phone').errors['minlength'] || signupForm.get('phone').errors['maxlength']">
                         Phone Number of 11 numbers only
                     </span>
                 </span>
@@ -97,7 +90,7 @@
                 <input type="text" class="form-control" formControlName="address" id="address" placeholder="Address ">
             </div>
             <div class="mb-3 form-group">
-                <label  for="img" style="margin: 2px;" class="form-label">Profile Image: </label>
+                <label for="img" style="margin: 2px;" class="form-label">Profile Image: </label>
                 <input type="file" id="img" name="img" (change)="onImageUploaded($event)">
                 <!-- <span *ngIf="!signupForm.get('image').valid" class="help-block">
                     <span *ngIf="signupForm.get('image').errors['required']">
@@ -111,8 +104,7 @@
             <div class="image-preview" *ngIf="myImagePreview !== ''  && myImagePreview">
                 <img [src]="myImagePreview" [alt]="">
             </div>
-            <button [disabled]="!signupForm.valid" type="submit"
-                class="btn btn-custom btn-lg btn-block mt-3">Register</button>
+            <button [disabled]="!signupForm.valid" type="submit" class="btn btn-custom btn-lg btn-block mt-3">Register</button>
         </form>
     </div>
 </div>

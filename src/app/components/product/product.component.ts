@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
-import {getProduct} from  '../../services/getProduct.service';
+import {ProductService} from  '../../services/product.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit {
   productReturned;
   subscriber
   
-  constructor(private activatedRoute: ActivatedRoute,private product:getProduct) { }
+  constructor(private activatedRoute: ActivatedRoute,private product:ProductService) { }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -24,14 +24,16 @@ export class ProductComponent implements OnInit {
     console.log(this.pid);
 
     
-    this.subscriber = this.product.getProduct(this.id,this.pid)
+    this.subscriber = this.product.getProductById_resId(this.id,this.pid)
       .subscribe((res)=>{
-      this.productReturned = res.body;
+      this.productReturned = res;
       console.log(res);
     },
     (error)=>{
       console.log(error)
     })
+
+    
 
     
   }
