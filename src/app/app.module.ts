@@ -115,7 +115,8 @@ import { ModifyproductComponent } from './components/modifyproduct/modifyproduct
     NavigationService,
     CartService,
     profile,
-    Auth
+    Auth,
+    SearchService
   ],
   bootstrap: [AppComponent]
 })

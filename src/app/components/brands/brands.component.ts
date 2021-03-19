@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Router} from '@angular/router';
-import { BrandsService } from 'src/app/services/brands.service';
+import { BrandsService } from '../../services/brands.service';
 import { brandsModels, servserResponse } from '../../Models/brands.model';
 
 @Component({
