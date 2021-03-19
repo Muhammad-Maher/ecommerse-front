@@ -15,7 +15,7 @@ export class ProductService {
   constructor(private http: HttpClient) {  }
   private baseURL:string = `https://ecommerce-food.herokuapp.com/api`;  
   private promotionsURL:string = "https://ecommerce-food.herokuapp.com/api/product/offers";
-  private localURL:string = "http://localhost:3000/api/product";
+  private localURL:string = "https://ecommerce-food.herokuapp.com/api/product";
   
   
   getPromotions(){

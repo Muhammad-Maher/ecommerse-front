@@ -13,7 +13,7 @@ export class Auth{
     error= new Subject();
     constructor(private http: HttpClient,private router:Router) {
     }
-    private RegisterURL: string = "http://localhost:3000/api/register"
+    private RegisterURL: string = "https://ecommerce-food.herokuapp.com/api/register"
 
     AddUser(newUser){        
              
