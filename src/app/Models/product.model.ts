@@ -4,3 +4,9 @@ export interface Product{
 "img":string,
 "resturantID":Object
 }
+
+
+export interface servserResponsep{
+    count:number;
+    products:Product[];
+}

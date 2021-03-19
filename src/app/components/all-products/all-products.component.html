@@ -1,4 +1,4 @@
-<div class="container ">
+<div class="container">
 
     <div class="card text-center m-3 ">
         <h3 class="card-header">All Products</h3>
@@ -8,15 +8,15 @@
                     <mat-paginator (page)="onPageChange($event)" [length]="100" [pageSize]="6" [pageSizeOptions]="[3, 6, 24, 
                     18]"></mat-paginator>
                 </div>
-                <div class="row">
+                <div class="row ">
 
 
                     <div class="col-sm-4" *ngFor="let item of items">
                         <div class="card mb-4" style="width: 18rem;">
                             <img [src]="item.img" class="card-img-top  card-img-top" [alt]="item.name">
                             <div class="card-body">
-                                <h5 class="card-title">{{item.name}}</h5>
-                                <p class="card-text">{{item.status}} | price:{{item.Price}} </p>
+                                <h3 class="card-title">{{item.Name}}</h3>
+                                <p class="card-text"><i class="fas fa-tags mr-2" *ngIf="item.status =='sale'"></i>{{item.status}} | price:{{item.Price}} </p>
                                 <p>
                                     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here,
                                     content here', making it look like readable English.

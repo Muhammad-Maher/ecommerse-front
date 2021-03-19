@@ -10,16 +10,16 @@ body {
 }
 
 .bg-custom {
-    background-color: #C8C8A9   ;
+    background-color: #C8C8A9;
 }
 
 .btn-custom {
-    background-color:#83AF9B  ;
+    background-color: #83AF9B;
     color: #fff;
 }
 
 .btn-custom:hover {
-    background-color:#FE4365  ;
+    background-color: #FE4365;
     color: #fff;
 }
 

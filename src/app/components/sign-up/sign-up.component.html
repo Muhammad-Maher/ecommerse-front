@@ -11,6 +11,11 @@
                         This field is required
                     </span>
                 </span>
+                <span *ngIf="this.error">
+                    <span *ngIf="this.error[0]==='username'">
+                        Repeated username, pleas try again
+                    </span>
+                </span>
             </div>
             <div class="mb-3 form-group">
                 <input type="text" class="form-control" formControlName="fname" placeholder="First Name">
@@ -41,6 +46,13 @@
                 </span>
             </div>
             <div class="mb-3 form-group">
+                <label for="gender" style="margin-right: 5px;">Choose your Gender:</label>
+                <select id="gender" name="gender" formControlName="gender">
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option> 
+                </select>
+            </div>
+            <div class="mb-3 form-group">
                 <input type="email" id="email" class="form-control" name="email" formControlName="email" placeholder="Mail">
                 <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched" class="help-block">
                     <span *ngIf="signupForm.get('email').errors['required']">
@@ -61,12 +73,17 @@
                         Enter Valid Pass with minLength equal 8
                     </span>
                 </span>
+                <span class="help-block" *ngIf="this.error">
+                    <span *ngIf="this.error[0]==='mail'">
+                        Repeated Mail pleas try again
+                    </span>
+                </span>
             </div>
             <div class="mb-3 form-group">
                 <input type="text" id="phone" class="form-control" formControlName="phone" placeholder="Phone">
                 <span *ngIf="!signupForm.get('phone').valid && signupForm.get('phone').touched" class="help-block">
                     <span *ngIf="signupForm.get('phone').errors['required']">
-                        This field is required and should be chars only
+                        This field is required 
                     </span>
                 <span *ngIf="signupForm.get('phone').errors['age has chars']">
                         Phone should be numbers only

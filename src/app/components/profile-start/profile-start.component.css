@@ -1,0 +1,82 @@
+body{margin-top:20px;
+    color: #bcd0f7;
+        background:#383e56;
+    }
+    .account-settings .user-profile {
+        margin: 0 0 1rem 0;
+        padding-bottom: 1rem;
+        text-align: center;
+    }
+    .account-settings .user-profile .user-avatar {
+        margin: 0 0 1rem 0;
+    }
+    .account-settings .user-profile .user-avatar img {
+        width: 90px;
+        height: 90px;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px;
+    }
+    .account-settings .user-profile h5.user-name {
+        margin: 0 0 0.5rem 0;
+    }
+    .account-settings .user-profile h6.user-email {
+        margin: 0;
+        font-size: 0.8rem;
+        font-weight: 400;
+    }
+    .account-settings .about {
+        margin: 1rem 0 0 0;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    .card {
+        background:#c5d7bd;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        border: 0;
+        margin-bottom: 1rem;
+    }
+    .form-control {
+        border: 1px solid #596280;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        font-size: .825rem;
+        background: #c5d7bd;
+        
+    }
+    label
+    {
+        color:#FE4365;
+        font-size: 20px;
+       font-weight: bold;
+    }
+    .text-primary
+    {
+        color:#383e56 !important;
+    }
+
+    .btn-custom {
+        background-color:#83AF9B  ;
+        color: #fff;
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .btn-custom:hover {
+        background-color:#FE4365  ;
+        color: #fff;
+    }
+    .in{
+        font-weight: 700;
+        
+        
+       
+    }
+    .bold
+    {
+        font-weight: bolder;
+        font-size: 24px;
+    }

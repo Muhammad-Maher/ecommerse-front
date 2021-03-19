@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscriber, Subscription } from 'rxjs';
+import{profile}from '../../services/profile'
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
-  constructor() { }
+  myProfile : Subscription;
+  errorSub :Subscription;
+  userData 
+  constructor(private myService :profile) { }
 
   ngOnInit(): void {
+    
+    this.myService.getProfile()
+    this.myProfile=this.myService.profile.subscribe(res=>{
+      console.log(res)
+      this.userData=res["userData"]
+      console.log(this.userData.username)
+      
+      
+    })
+    this.errorSub= this.myService.error.subscribe(err=>{
+     
+      console.log(err);
+    });
   }
+
 
 }

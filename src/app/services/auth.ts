@@ -11,19 +11,35 @@ import { User } from '../Models/userModel'
 
 export class Auth{
     error= new Subject();
-    constructor(private http: HttpClient,private router:Router) {
+    logedUser= new Subject();
+    constructor(private myClient: HttpClient,private router:Router) {
     }
     private RegisterURL: string = "https://ecommerce-food.herokuapp.com/api/register"
 
+    private logIn: string="https://ecommerce-food.herokuapp.com/api/login"
+    
     AddUser(newUser){        
              
 
-        return this.http.post(this.RegisterURL,newUser)
-        // this.myClient.post(this.RegisterURL, newUser)
-        // .subscribe(res=>{
-        //     console.log(res)
-        // },err=>{
-        //     console.log(err);
-        // })
+        return this.myClient.post(this.RegisterURL,newUser)
+        
+    }
+
+    myLogIn(userData){
+        console.log(userData)
+        this.myClient.post(this.logIn,{"password":userData.controls.password.value,"username":userData.controls.username.value})
+        .subscribe(res=>{
+            console.log(res)
+            let myToken=res["token"];
+            localStorage.setItem("token",myToken);
+            let Id=res["id"];
+            localStorage.setItem("id",Id);
+            this.logedUser.next(res);
+            this.router.navigate(['/profile']);
+        },err=>{
+            console.log(err)
+            // console.log("kfjvmifo");
+            this.error.next(err)
+        });
     }
 }

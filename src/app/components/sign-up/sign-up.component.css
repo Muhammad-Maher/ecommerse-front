@@ -43,14 +43,16 @@ a:hover {
         display: none !important;
     }
 }
-input.ng-invalid.ng-touched{
+
+input.ng-invalid.ng-touched {
     border: 1px solid red;
 }
 
-.image-preview{
+.image-preview {
     height: 5rem;
     margin: 1rem 0;
 }
-.image-preview img{
+
+.image-preview img {
     height: 100%;
 }

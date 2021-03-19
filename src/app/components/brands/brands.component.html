@@ -1,0 +1,24 @@
+<p>brands works!</p>
+
+<div class="container">
+    <div class="row justify-content-around">
+        <mdb-card class="col-4" *ngFor="let brand of brands">
+            <!--Card image-->
+            <mdb-card-img src={{brand.img}} alt="Card image cap"></mdb-card-img>
+            <!--Card content-->
+            <mdb-card-body>
+          
+              <!--Title-->
+              <mdb-card-title>
+                <h4>{{brand.Name}}</h4>
+              </mdb-card-title>
+          
+              <!--Text-->
+              <mdb-card-text>{{brand.Description}} 
+              </mdb-card-text>
+          
+              <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a>
+            </mdb-card-body>
+          </mdb-card>
+    </div>
+</div>

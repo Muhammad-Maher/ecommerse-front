@@ -1,0 +1,62 @@
+
+<div *ngIf="userData;else block"class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+    <div class="card h-100">
+        <div class="card-body">
+            <div class="row gutters">
+
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <h6 class="mb-3 text-primary bold">Personal Details</h6>
+</div>
+<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+    <div class="form-group">
+        <label for="fullName">User Name</label>
+       <div  id="fullName" class="in">{{userData.username}} </div>
+    </div>
+</div>
+
+<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+      <div id="firstName" class="in">{{userData.fname}}</div>
+    </div>
+</div>
+<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+    <div class="form-group">
+        <label for="lname">Last Name</label>
+        <div *ngIf="this.userData.lname"class="in" id="lname">{{userData.lname}}</div>
+        <div *ngIf="!this.userData.lname"class="in" id="lname">------</div>
+    </div>
+</div>
+<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+    <div class="form-group">
+        <label for="eMail">Email</label>
+ <div id="eMail" class="in">{{userData.mail}}    </div>
+    </div>
+</div>
+
+<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+    <div class="form-group">
+        <label for="phone">Phone</label>
+        <div id="phone" class="in">{{userData.Phone}} </div>
+    </div>
+</div>
+<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+    <div class="form-group">
+        <label for="address">Address</label>
+        <div id="address" class="in">{{userData.Address}} </div>
+    </div>
+</div>
+<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+    <label for="governorater"> Governorate:  </label>
+    <div id="governorater" class="in">{{userData.governorater}} </div>
+  
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #block>
+    
+</ng-template>

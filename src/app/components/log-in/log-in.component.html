@@ -3,16 +3,25 @@
         <img src="../../assets/images/bg.jpg" class="w-100  ">
     </div>
     <div class="col p-0 bg-custom d-flex justify-content-center align-items-center flex-column w-100">
-        <form class="w-75" action="#">
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Username</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="username"
-                    required>
+        <form class="w-75" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3 form-group">
+                <input type="text" formControlName="username" class="form-control" id="exampleFormControlInput1" placeholder="User Name">
+                <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched" class="help-block">
+                    <span *ngIf="loginForm.get('username').errors['required']">
+                        This field is required
+                    </span>
+                </span>
             </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput2" class="form-label">Password</label>
-                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="password"
-                    required>
+            <div class="mb-3" class="form-group">
+                <input type="password" id="password" class="form-control" name="password" formControlName="password" formControlName="password" placeholder="Password">
+                <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" class="help-block">
+                    <span *ngIf="loginForm.get('password').errors['required']">
+                        This field is required
+                    </span>
+                <span *ngIf="loginForm.get('password').errors['minlength']">
+                        Enter Valid Pass with minLength equal 8
+                    </span>
+                </span>
             </div>
             <div class="row">
                 <div class="col-md-6">
@@ -24,8 +33,15 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-custom btn-lg btn-block mt-3">Login Now</button>
-            <a class="btn btn-custom btn-lg btn-block mt-3 "[routerLinkActive]="{exact:true}" routerLink="/signup"> Sign Up</a>
+            <span class="help-block" *ngIf="this.error">
+                wrong email or password
+            </span>
+            <button [disabled]="!loginForm.valid" type="submit" class="btn btn-custom btn-lg btn-block mt-3">Login
+                Now</button>
+            <a class="btn btn-custom btn-lg btn-block mt-3 " [routerLinkActive]="['exact:true']" routerLink="../signup">
+                Sign
+                Up</a>
         </form>
+
     </div>
 </div>

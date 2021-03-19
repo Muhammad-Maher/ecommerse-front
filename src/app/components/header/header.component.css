@@ -1,9 +1,8 @@
-li:hover{
+li:hover {
     cursor: pointer;
 }
 
-
-  .bg-light {
+.bg-light {
     background-color: #9fb8ad !important;
 }
 
@@ -11,9 +10,18 @@ li:hover{
     color: black;
     border-color: #1e212d;
 }
+
 .btn-outline-primary:hover {
-    
     color: #fff;
-    background-color:#1e212d;
-    border-color:#1e212d;
+    background-color: #1e212d;
+    border-color: #1e212d;
 }
+
+.navbar-brand {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(5, 5, 44);
+    font-size: 27px;
+}
+
+
+/* .inputSearch {} */

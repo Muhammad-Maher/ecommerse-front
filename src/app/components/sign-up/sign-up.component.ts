@@ -3,6 +3,7 @@ import { FormControl, FormGroup, NG_ASYNC_VALIDATORS, Validators } from '@angula
 import {myImage} from './imageValidation'
 import { Auth } from '../../services/auth'
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -18,7 +19,7 @@ export class SignUpComponent implements OnInit,OnDestroy {
   private errorSub: Subscription;
   error= null
 
-  constructor(private myService:Auth) {  }
+  constructor(private myService:Auth, private router:Router) {  }
 
   ngOnInit(): void {
     this.signupForm = new FormGroup({
@@ -39,10 +40,10 @@ export class SignUpComponent implements OnInit,OnDestroy {
     });
 
 
-    this.errorSub = this.myService.error.subscribe(err=>{
-      console.log(err);
-      this.error=err;
-    })
+    // this.errorSub = this.myService.error.subscribe(err=>{
+    //   console.log(err);
+    //   this.error=err;
+    // })
   }
 
   //////////Submit
@@ -64,7 +65,21 @@ export class SignUpComponent implements OnInit,OnDestroy {
       
     this.myService.AddUser(postUser).subscribe(data => {
       this.prp = data;
-    })
+      this.router.navigate(['/login']);
+    }
+    ,err=>{ let errorKeys=err.error.keyValue
+
+      if(this.error[0]==="username")
+            {
+              console.log("RepeatedUser")
+            }else if(this.error[0]==="email")
+            {
+              console.log("repeatedMail")
+            }
+          
+         
+      
+    } )
   }
 
   /////////upload Image
@@ -96,6 +111,6 @@ export class SignUpComponent implements OnInit,OnDestroy {
 
 
   ngOnDestroy(){
-    this.errorSub.unsubscribe();
+    // this.errorSub.unsubscribe();
   }
 }

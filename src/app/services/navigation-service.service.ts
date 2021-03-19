@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core'
 import { Location } from '@angular/common'
 import { Router, NavigationEnd } from '@angular/router'
+import { HttpClientModule } from '@angular/common/http'; 
+
 
 @Injectable({ providedIn: 'root' })
 export class NavigationService {
