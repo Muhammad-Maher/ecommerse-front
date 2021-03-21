@@ -18,8 +18,8 @@ export class CartService {
   constructor(private http: HttpClient ) {  
     
   }
-  // private baseURL:string = `https://ecommerce-food.herokuapp.com/api/cart`;  
-  private baseURL:string = `http://localhost:3000/api/cart`;  
+  private baseURL:string = `https://ecommerce-food.herokuapp.com/api/cart`;  
+  // private baseURL:string = `http://localhost:3000/api/cart`;  
   
 
   public setCartItems(value: number) {
