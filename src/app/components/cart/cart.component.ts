@@ -34,10 +34,11 @@ export class CartComponent implements OnInit {
       {
         alert("product removed");
       }
-      // this.items.productID=this.items.productID.filter(item => item._id !== _id);
+      
+      this.total -= this.items.productID[index].Price; 
       this.items.productID.splice(index, 1);
-      // this.cart.cartItems = this.items.length;
-      console.log(this.items.productID.length);
+
+      
       
       this.cart.setCartItems(this.items.productID.length);
 
@@ -50,25 +51,22 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
 
     this.subscriber = this.cart.getCart().subscribe((res)=>{
+      if(res != null){
       this.items = res; 
       const count : any =   this.items.productID;
-      // this.cart.cartItems =count.length;        
-
-      // console.log(this.items)
+      
 
       this.items.productID.forEach(element => {
         this.total += element.Price;       
       });      
+    }
     },
     (error)=>{
       console.log(error)
     })
 
    
-    // this.cartItemsSubscribtion = this.cart.cartItems.subscribe((val)=>{
-    //   this.cartItems = val;
-    // })
-    
+   
   
 
 
@@ -76,7 +74,7 @@ export class CartComponent implements OnInit {
        
       var $btn =  $(this);
       var $cart = $('.cart');
-      // console.log($btn);
+      
       
       if ($btn.hasClass('is-open')) {
          $btn.removeClass('is-open');

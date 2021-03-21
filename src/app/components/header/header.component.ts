@@ -6,6 +6,7 @@ import { AppComponent } from '../../app.component';
 import { Auth } from '../../services/auth'
 import{SearchService} from '../../services/search.service';
 import{CartService} from '../../services/cart.service';
+import{AdminService} from '../../services/admin.service';
 import { textChangeRangeIsUnchanged } from 'typescript';
 
 @Component({
@@ -15,17 +16,19 @@ import { textChangeRangeIsUnchanged } from 'typescript';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router:Router, private reload:AppComponent, private myService:Auth, private myservice:SearchService, private cart:CartService,private route:ActivatedRoute ) { }
+  constructor(private router:Router, private reload:AppComponent, private myService:Auth, private myservice:SearchService, private cart:CartService,private route:ActivatedRoute , private admin: AdminService) { }
   token=null
   myToken=null
   LogSub:Subscription;
   cartItems = 0;
   subscriber :Subscription;
   subscriberCartItems :Subscription;
+  subscriberAdmin :Subscription;
   name:string;
   myform: FormGroup
   value
   selectedValueOptions
+  adminCheck
 
   ngOnInit(): void {
     console.log("Headers")
@@ -45,11 +48,12 @@ export class HeaderComponent implements OnInit {
     if(this.token)
     {
       this.subscriber =this.cart.getCart().subscribe((val)=>{
+        if(val != null){
           var productIDArray : any = val.productID;
-          this.cartItems = productIDArray.length;
-          
-          this.cart.setCartItems(this.cartItems);
-        
+          this.cartItems = productIDArray.length;          
+        }
+        this.cart.setCartItems(this.cartItems);
+
           this.subscriberCartItems=this.cart.cartItems.subscribe((val)=>{
             this.cartItems = val
           })
@@ -59,7 +63,9 @@ export class HeaderComponent implements OnInit {
         
       }
       
-    
+    this.subscriberAdmin = this.admin.admin.subscribe((value)=>{
+      this.adminCheck = value;
+    })
     
 
   }

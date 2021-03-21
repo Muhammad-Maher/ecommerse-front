@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Auth } from '../../services/auth'
+import { AdminService } from '../../services/admin.service'
+import { profile} from '../../services/profile'
 import { HeaderComponent } from '../header/header.component'
 
 @Component({
@@ -11,12 +13,16 @@ import { HeaderComponent } from '../header/header.component'
 })
 export class LogInComponent implements OnInit {
 
-  constructor(private myService:Auth) { }
+  constructor(private myService:Auth, private admin:AdminService, private profile: profile) { }
   loginForm: FormGroup
   private errorSub: Subscription;
   error= null
   myToken=null
   private LogSub:Subscription;
+adminCheck
+  subscriber
+  userProfile
+  userData
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -29,11 +35,23 @@ export class LogInComponent implements OnInit {
       console.log(this.error);
     });
     this.LogSub= this.myService.logedUser.subscribe(res=>{
-     
-      
-      
-
+             
     })
+
+    this.profile.getProfile()
+    this.userProfile=this.profile.profile.subscribe(res=>{
+      console.log(res)
+      this.userData=res["userData"]
+      // console.log(this.userData.status)
+      this.adminCheck=this.userData.status
+      this.admin.setadmin(this.adminCheck);
+      
+    })
+    this.errorSub= this.myService.error.subscribe(err=>{
+     
+      console.log(err);
+    });
+    
 
   }
 
