@@ -17,7 +17,13 @@ export class profile{
     constructor(private myClient: HttpClient,private router:Router) {
     }
   //  private RegisterURL: string = "https://ecommerce-food.herokuapp.com/api/register"
+
+
     private profileUrl: string="https://ecommerce-food.herokuapp.com/api/user/profile"
+    // private profileUrl: string="http://localhost:3000/api/user/profile"
+
+
+
  // private profileUrl: string="https://ecommerce-food.herokuapp.com/api/user/profile/605208d0d282fa970bb44ba2"
     //private logIn: string="https://ecommerce-food.herokuapp.com/api/login"
 getToken()
