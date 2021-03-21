@@ -78,9 +78,10 @@ export class HeaderComponent implements OnInit {
 
   getProductsByName()
   {
-   // console.log(name.value)
+     
+  //  console.log(this.myform.get('body').value)
      this.myservice.getProductByname(this.myform.get('body').value)
-    console.log(this.myform.get('body').value)
+    // console.log(this.myform.get('body').value)
   }
 
   ngOnDestroy() {

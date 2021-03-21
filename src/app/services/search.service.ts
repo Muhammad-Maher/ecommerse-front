@@ -12,14 +12,16 @@ export class SearchService {
   searchSub = new Subject()
   constructor(private myclient:HttpClient , private router:Router) { }
 
-  private baseurl:string ="https://ecommerce-food.herokuapp.com/api/search";
+  // private baseurl:string ="https://ecommerce-food.herokuapp.com/api/search";
+  private baseurl:string ="http://localhost:3000/api/search";
   
 //   getProductsByName(name:string):Observable<servserResponsep>{
 //     return this.myclient.post<servserResponsep>(this.baseurl,name);
 //  }
 
 getProductByname(name){
-this.myclient.post(this.baseurl,{searchWord:name}).subscribe(
+  // console.log(name)
+this.myclient.post(this.baseurl,{"searchWord":name}).subscribe(
   res=>{
     console.log(res)
     this.searchSub.next(res)

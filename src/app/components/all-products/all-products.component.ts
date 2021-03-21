@@ -14,10 +14,11 @@ export class AllProductsComponent implements OnInit {
   AllProducts 
   items
   subscriber
-  
+  token
 
   ngOnInit(): void {
 
+    this.token=localStorage.getItem("token");
      this.subscriber = this.products.getAllProducts()
       .subscribe((res)=>{
       this.AllProducts = res;

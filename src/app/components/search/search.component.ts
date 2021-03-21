@@ -20,8 +20,9 @@ export class SearchComponent implements OnInit {
   mySearch :Subscription
   AllProducts
   items
+  token
   ngOnInit(): void {
-    
+    this.token=localStorage.getItem("token");
     this.mySearch = this.myservice.searchSub.subscribe(res=>{
       this.AllProducts = res;
       this.items=this.AllProducts

@@ -64,13 +64,13 @@
                         <button type="button " class="btn btn-outline-primary " (click)="logOut() ">LogOut</button>
                     </li>
                     <li>
-                        <form class=" d-flex mr-auto " [formGroup]="myform " (ngSubmit)="getProductsByName() ">
-                            <input class="form-control me-2 inputSearch " formControlName="body " (mousedown)="checkToken() " type="search " placeholder="Search " aria-label="Search ">
-                            <button class="btn btn-dark " type="submit ">Search</button>
+                        <form class=" d-flex mr-auto " [formGroup]="myform">
+                            <input class="form-control me-2 inputSearch " formControlName="body" (mousedown)="checkToken()" type="search " placeholder="Search " aria-label="Search ">
+                            <button class="btn btn-dark " type="submit" (click)="getProductsByName()">Search</button>
                         </form>
                     </li>
                     <li class="pl-3 ">
-                        <a [routerLinkActive]="[ 'exact:true'] " routerLink="/cart ">
+                        <a [routerLinkActive]="[ 'exact:true'] " routerLink="/cart">
                             <i class="fas fa-shopping-cart cart "></i>
                             <span class="badge badge-pill badge-primary ml-2 cartBadge ">{{cartItems }}</span>
                         </a>
