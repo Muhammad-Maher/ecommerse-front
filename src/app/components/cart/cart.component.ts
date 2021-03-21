@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 declare var $: any;
 import{CartService}from'../../services/cart.service'
 import { NavigationService } from '../../services/navigation-service.service'
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -14,16 +15,44 @@ export class CartComponent implements OnInit {
   constructor(private cart:CartService, private navigate:NavigationService) { }
   items
   subscriber
+  cartItems
+  cartItemsSubscribtion
+  RemoveCartsubscriber
   return()
   {
     this.navigate.back()
   }
 
   total : number = 0;
+
+
+  removeProduct(_id,index) {
+    this.RemoveCartsubscriber=this.cart.RemoveFromCart(_id,index).subscribe((res)=>{
+
+      console.log(res);
+      if(res == "product removed successfully")
+      {
+        alert("product removed");
+      }
+      // this.items.productID=this.items.productID.filter(item => item._id !== _id);
+      this.items.productID.splice(index, 1);
+      // this.cart.cartItems = this.items.length;
+      console.log(this.items.productID.length);
+      
+      this.cart.setCartItems(this.items.productID.length);
+
+    },(err)=>{
+
+      console.log(err)
+    })
+
+  }
   ngOnInit(): void {
 
     this.subscriber = this.cart.getCart().subscribe((res)=>{
-      this.items = res;            
+      this.items = res; 
+      const count : any =   this.items.productID;
+      // this.cart.cartItems =count.length;        
 
       // console.log(this.items)
 
@@ -35,6 +64,10 @@ export class CartComponent implements OnInit {
       console.log(error)
     })
 
+   
+    // this.cartItemsSubscribtion = this.cart.cartItems.subscribe((val)=>{
+    //   this.cartItems = val;
+    // })
     
   
 
@@ -110,4 +143,7 @@ export class CartComponent implements OnInit {
     
   }
 
+  ngOnDestroy() {
+    // this.cartItemsSubscribtion.unsubscribe();
+}
 }

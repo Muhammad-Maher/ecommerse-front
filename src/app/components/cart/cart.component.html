@@ -9,7 +9,7 @@
 
     <div class="cart transition is-open">
 
-        <a href="#" class="btn btn-update">Update cart</a>
+        <!-- <a href="#" class="btn btn-update">Update cart</a> -->
 
 
         <div class="table">
@@ -20,7 +20,8 @@
                     Price
                 </div>
                 <div class="col col-qty align-center">status</div>
-                <div class="col">resturant</div>
+                <div class="col col-qty align-center">resturant</div>
+                <div class="col col-qty align-center"></div>
 
             </div>
             <div class="text-center" *ngFor="let item of items?.productID; let i =index">
@@ -42,9 +43,13 @@
 
                         <p>{{item.status}}</p>
                     </div>
-                    <div class="col col-pro layout-inline ">
+                    <div class="col col-pro layout-inline text-center">
 
                         <p>{{item.resturantID.Name}}</p>
+                    </div>
+                    <div class="col col-pro layout-inline text-center">
+
+                        <a (click)="removeProduct(item._id,i)"><i class="fas fa-trash" style="font-size: 1.5rem; "></i></a>
                     </div>
 
 
@@ -54,12 +59,12 @@
 
 
 
-            <div class="tf ">
-                <div class="row layout-inline text-center">
+            <div class=" tf ">
+                <div class="row layout-inline text-center ">
                     <div class="col ">
                         <p>Total</p>
                     </div>
-                    <div class="col " style="font-size: 1.5rem;">{{total}}</div>
+                    <div class="col " style="font-size: 1.5rem; ">{{total}}</div>
                 </div>
             </div>
 

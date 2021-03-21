@@ -68,7 +68,7 @@ a {
     position: relative;
     z-index: 1;
     color: #f7f7f7;
-    background: #f34d35;
+    background: #9fb8ad;
 }
 
 .cart {
@@ -98,7 +98,7 @@ a {
 }
 
 .th {
-    background: #f34d35;
+    background: #9fb8ad;
     color: #fff;
     text-transform: uppercase;
     font-weight: bold;
@@ -106,7 +106,7 @@ a {
 }
 
 .tf {
-    background: #f34d35;
+    background: #9fb8ad;
     text-transform: uppercase;
     text-align: right;
     font-size: 1.2em;

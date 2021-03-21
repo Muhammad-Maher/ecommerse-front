@@ -25,7 +25,7 @@ export class ModifyproductComponent implements OnInit {
 
   geTheProduct(){
     if(this.id != 0){
-      console.log("maher");
+      // console.log("here");
     this.subscriber = this.product.getProductById(this.id)
     .subscribe((res)=>{
     this.item =res

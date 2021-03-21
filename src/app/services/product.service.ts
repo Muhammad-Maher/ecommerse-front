@@ -61,7 +61,7 @@ export class ProductService {
   }
 
   deleteProduct(id){
-    return this.http.delete(this.baseURL+"/"+id, {headers:{authorization:this.getToken()}});
+    return this.http.delete(this.baseURL+`/product/${id}`, {headers:{authorization:this.getToken()}});
   }
 
   updateProduct(id){

@@ -12,6 +12,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { DashboardComponent } from './components/dashboard/dashboard.component';//*
 import { AllProductsComponent } from './components/all-products/all-products.component';//*
 import { CartComponent } from './components/cart/cart.component'//*
+import { DeleteProductComponent } from './components/delete-product/delete-product.component'//*
 
 //
 
@@ -49,6 +50,7 @@ const routes: Routes = [
   {path:'userorder',component:UserOrdersComponent},
   {path:'search',component:SearchComponent},
   {path:'modifyProduct',component:ModifyproductComponent},
+  {path:'DeleteProduct',component:DeleteProductComponent},
   //
   {path:'profile',component:ProfileComponent,children:[
     {path:'', component:ProfileStartComponent},

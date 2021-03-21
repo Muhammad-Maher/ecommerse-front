@@ -1,18 +1,31 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError,Subject  } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 import{Cart} from '../Models/cart.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-
-  constructor(private http: HttpClient ) {  }
-  private baseURL:string = `https://ecommerce-food.herokuapp.com/api/cart`;  
-  // private baseURL:string = `http://localhost:3000/api/cart`;  
   
+ 
+  
+  private cartItemsSources: BehaviorSubject<number> = new BehaviorSubject(0); 
+  public cartItems = this.cartItemsSources.asObservable();
+
+  constructor(private http: HttpClient ) {  
+    
+  }
+  // private baseURL:string = `https://ecommerce-food.herokuapp.com/api/cart`;  
+  private baseURL:string = `http://localhost:3000/api/cart`;  
+  
+
+  public setCartItems(value: number) {
+    this.cartItemsSources.next(value);
+}
+
   getId()
   {
       const Id=localStorage.getItem("id");
@@ -39,18 +52,25 @@ export class CartService {
 
 
 
-getCart(){
-    
+  getCart(){
+      
     return this.http.get<Cart>(this.baseURL+`/get/${this.getId()}`,{headers:{authorization:this.getToken()}});
   }    
 
 
-  postCart(formData:FormData){    
-    return this.http.post(this.baseURL+`/add`,formData)
+  postCart(data:any){ 
+    data.userID = this.getId(); 
+    
+    return this.http.post(this.baseURL+`/add`,data,{headers:{authorization:this.getToken()}})
   }
 
  
   updateCart(formData:FormData){
     return this.http.put(this.baseURL+"/update",formData)
+  }
+
+  RemoveFromCart(productID,index){
+    
+    return this.http.delete(this.baseURL+`/remove/${this. getId()}/${productID}/${index}`,{headers:{authorization:this.getToken()}})
   }
 }

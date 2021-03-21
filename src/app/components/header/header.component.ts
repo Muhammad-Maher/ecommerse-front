@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AppComponent } from '../../app.component';
 import { Auth } from '../../services/auth'
 import{SearchService} from '../../services/search.service';
+import{CartService} from '../../services/cart.service';
+import { textChangeRangeIsUnchanged } from 'typescript';
 
 @Component({
   selector: 'app-header',
@@ -13,14 +15,17 @@ import{SearchService} from '../../services/search.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router:Router, private reload:AppComponent, private myService:Auth, private myservice:SearchService) { }
+  constructor(private router:Router, private reload:AppComponent, private myService:Auth, private myservice:SearchService, private cart:CartService,private route:ActivatedRoute ) { }
   token=null
   myToken=null
   LogSub:Subscription;
-
+  cartItems = 0;
+  subscriber :Subscription;
+  subscriberCartItems :Subscription;
   name:string;
   myform: FormGroup
   value
+  selectedValueOptions
 
   ngOnInit(): void {
     console.log("Headers")
@@ -36,6 +41,26 @@ export class HeaderComponent implements OnInit {
     this.myform=new FormGroup({
       'body':new FormControl(null)
     })
+
+    if(this.token)
+    {
+      this.subscriber =this.cart.getCart().subscribe((val)=>{
+          var productIDArray : any = val.productID;
+          this.cartItems = productIDArray.length;
+          
+          this.cart.setCartItems(this.cartItems);
+        
+          this.subscriberCartItems=this.cart.cartItems.subscribe((val)=>{
+            this.cartItems = val
+          })
+          
+        })
+        
+        
+      }
+      
+    
+    
 
   }
   checkToken(){
@@ -58,7 +83,13 @@ export class HeaderComponent implements OnInit {
     console.log(this.myform.get('body').value)
   }
 
-  
+  ngOnDestroy() {
+    this.subscriber.unsubscribe();
+    this.subscriberCartItems.unsubscribe();
+}
+
+
+
   
 
 }

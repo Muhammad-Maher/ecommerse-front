@@ -56,7 +56,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { DynamicGridListComponent } from './components/about/dynamic-grid-list/dynamic-grid-list.component';
 import { ClickCursorDirective } from './directives/clickCursor.directive';
-import { ModifyproductComponent } from './components/modifyproduct/modifyproduct.component'
+import { ModifyproductComponent } from './components/modifyproduct/modifyproduct.component';
+import { DeleteProductComponent } from './components/delete-product/delete-product.component'
 
 
 
@@ -102,7 +103,8 @@ import { ModifyproductComponent } from './components/modifyproduct/modifyproduct
     ProfileStartComponent,
     EditProfileComponent,
     SearchComponent,
-    ModifyproductComponent
+    ModifyproductComponent,
+    DeleteProductComponent
     
 ],
 

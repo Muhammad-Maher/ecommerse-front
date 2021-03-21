@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
     <div class="container-fluid">
         <div class="row w-100 d-flex justify-content-around">
             <a class="navbar-brand " href="#">ElAkeeel</a>
@@ -34,25 +34,46 @@
                         <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/promotions">Promotions</a>
                     </li>
                     <li *ngIf="this.token" class="nav-item">
-                        <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/addproduct">AddProduct</a>
+                        <div ngbDropdown class="d-inline-block">
+                            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Product options</button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+
+
+
+                                <a ngbDropdownItem class="nav-link mr-3  " [routerLinkActive]="[ 'exact:true'] " routerLink="/addproduct">AddProduct</a>
+
+                                <a ngbDropdownItem class="nav-link mr-3  " [routerLinkActive]="[ 'exact:true'] " routerLink="/modifyProduct">modifyProduct</a>
+
+                                <a ngbDropdownItem class="nav-link mr-3  " [routerLinkActive]="[ 'exact:true'] " routerLink="/DeleteProduct">DeleteProduct</a>
+                            </div>
+                        </div>
+
+
+
                     </li>
-                    <li *ngIf="!this.token" class="nav-item mr-3">
-                        <a class="btn btn-outline-primary" [routerLinkActive]="['exact:true']" routerLink="/login">Log in</a>
+                    <li *ngIf="!this.token " class="nav-item mr-3 ">
+                        <a class="btn btn-outline-primary " [routerLinkActive]="[ 'exact:true'] " routerLink="/login ">Log in</a>
                     </li>
-                    <li *ngIf="!this.token" class="nav-item">
-                        <a class="btn btn-outline-primary" [routerLinkActive]="['exact:true']" routerLink="/signup">Sign Up</a>
+                    <li *ngIf="!this.token " class="nav-item ">
+                        <a class="btn btn-outline-primary " [routerLinkActive]="[ 'exact:true'] " routerLink="/signup ">Sign Up</a>
                     </li>
                 </ul>
 
-                <ul class="navbar-nav ml-5">
-                    <li *ngIf="this.token" class="nav-item mr-3">
-                        <button type="button" class="btn btn-outline-primary" (click)="logOut()">LogOut</button>
+                <ul class="navbar-nav ml-5 " *ngIf="this.token ">
+                    <li class="nav-item mr-3 ">
+                        <button type="button " class="btn btn-outline-primary " (click)="logOut() ">LogOut</button>
                     </li>
                     <li>
-                        <form class=" d-flex   mr-auto" [formGroup]="myform" (ngSubmit)="getProductsByName()">
-                            <input class="form-control me-2 inputSearch" formControlName="body" (mousedown)="checkToken()" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-dark" type="submit">Search</button>
+                        <form class=" d-flex mr-auto " [formGroup]="myform " (ngSubmit)="getProductsByName() ">
+                            <input class="form-control me-2 inputSearch " formControlName="body " (mousedown)="checkToken() " type="search " placeholder="Search " aria-label="Search ">
+                            <button class="btn btn-dark " type="submit ">Search</button>
                         </form>
+                    </li>
+                    <li class="pl-3 ">
+                        <a [routerLinkActive]="[ 'exact:true'] " routerLink="/cart ">
+                            <i class="fas fa-shopping-cart cart "></i>
+                            <span class="badge badge-pill badge-primary ml-2 cartBadge ">{{cartItems }}</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -61,5 +82,6 @@
 
 
     </div>
+
 
 </nav>
