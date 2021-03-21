@@ -69,6 +69,7 @@ export class SignUpComponent implements OnInit,OnDestroy {
     }
     ,err=>{ let errorKeys=err.error.keyValue
 
+      // console.log(this.error)
       if(this.error[0]==="username")
             {
               console.log("RepeatedUser")

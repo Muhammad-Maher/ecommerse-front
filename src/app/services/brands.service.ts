@@ -10,7 +10,11 @@ export class BrandsService {
 
   constructor(private myclient:HttpClient) { }
 
+  //server
   private baseurl:string ="https://ecommerce-food.herokuapp.com/api/brand";
+  
+  // //local
+  // private baseurl:string ="http://localhost:3000/api/brand";
 
   getBrands(numberofbrands:number=9):Observable<servserResponse>{
     return this.myclient.get<servserResponse>(this.baseurl);

@@ -13,10 +13,13 @@ export class ProductService {
 
   
   constructor(private http: HttpClient) {  }
+  //server
   private baseURL:string = `https://ecommerce-food.herokuapp.com/api`;  
   private promotionsURL:string = "https://ecommerce-food.herokuapp.com/api/product/offers";
   private localURL:string = "https://ecommerce-food.herokuapp.com/api/product";
   
+
+  // //local
   // private baseURL:string = `http://localhost:3000/api`;  
   // private promotionsURL:string = "http://localhost:3000/api/product/offers";
   // private localURL:string = "http://localhost:3000/api/product";

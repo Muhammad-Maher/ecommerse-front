@@ -14,9 +14,17 @@ export class Auth{
     logedUser= new Subject();
     constructor(private myClient: HttpClient,private router:Router) {
     }
+    
+    //server
     private RegisterURL: string = "https://ecommerce-food.herokuapp.com/api/register"
-
+    
     private logIn: string="https://ecommerce-food.herokuapp.com/api/login"
+    
+    
+    // //local
+    // private RegisterURL: string = "http://localhost:3000/api/register"
+    
+    // private logIn: string="http://localhost:3000/api/login"
     
     AddUser(newUser){        
              

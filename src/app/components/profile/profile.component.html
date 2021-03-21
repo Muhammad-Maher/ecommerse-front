@@ -9,7 +9,7 @@
                             <div *ngIf="userData" class="user-avatar">
                                 <img [src]="this.userData.img" alt="profile pic">
                             </div>
-                            <h5 *ngIf="userData" class="user-name">{{this.userData.username}}</h5>
+                            <h5 *ngIf="userData != null" class="user-name">{{this.userData.username}}</h5>
 
                         </div>
                         <div class="about">
