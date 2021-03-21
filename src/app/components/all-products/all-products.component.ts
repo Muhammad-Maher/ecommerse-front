@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from '../../services/product.service'
+import {CartService} from '../../services/cart.service'
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-all-products',
@@ -10,11 +12,15 @@ export class AllProductsComponent implements OnInit {
   
   
   
-  constructor(private products:ProductService) { }
+  constructor(private products:ProductService , private cart: CartService) { }
   AllProducts 
   items
   subscriber
   token
+  cartsubscriber
+  cartItems : number = 0;
+  cartItemsSubscriber :Subscription ;
+
 
   ngOnInit(): void {
 
@@ -29,16 +35,38 @@ export class AllProductsComponent implements OnInit {
     (error)=>{
       console.log(error)
     })
-    
-    // console.log(this.promotionsList);
+
+
+     // console.log(this.promotionsList);
+     this.cartItemsSubscriber = this.cart.cartItems.subscribe((val)=>{
+      this.cartItems = val;
+      // console.log(val)
+     })
     
 
   }
+
 
   onPageChange($event) {
     this.items =  this.AllProducts.slice($event.pageIndex*$event.pageSize,
     $event.pageIndex*$event.pageSize + $event.pageSize);
   }
+
+  addToCart(_id){
+    this.cartsubscriber = this.cart.postCart({ "productID" : _id}).subscribe((res)=>{
+      console.log(res);
+      if(res == "cart updated successfully" || res == "cart created successfully"){
+        alert("Product added  to cart");
+        this.cart.setCartItems(this.cartItems + 1);
+        
+      }
+
+      
+    },(err)=>{
+      console.log(err);
+    })
+  }
+
 
 
   ngOnDestroy(){

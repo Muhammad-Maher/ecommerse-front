@@ -21,8 +21,8 @@ export class PromotionsComponent implements OnInit {
   subscriber
   cartsubscriber
   cartItems : number = 0;
-  token=null
   cartItemsSubscriber :Subscription ;
+  token=null
   // pageSizeOptions
   // pageSize
   // length
