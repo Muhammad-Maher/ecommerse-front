@@ -4,6 +4,12 @@
     object-fit: cover;
 }
 
+.image {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+}
+
 .fa-utensils {
     color: rgb(90, 90, 211);
 }

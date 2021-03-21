@@ -1,47 +1,51 @@
-<div class="row m-0 h-100">
-    <div class="col p-0 text-center d-flex justify-content-center align-items-center display-none h-100">
-        <img src="../../assets/images/bg.jpg" class="w-100  ">
-    </div>
-    <div class="col p-0 bg-custom d-flex justify-content-center align-items-center flex-column w-100">
-        <form class="w-75" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <div class="mb-3 form-group">
-                <input type="text" formControlName="username" class="form-control" id="exampleFormControlInput1" placeholder="User Name">
-                <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched" class="help-block">
+<div class="container-fluid imgDiv w-100 h-100 pt-5">
+    <div class="container pb-5 d-flex justify-content-center align-items-center h-100 ">
+        <div class="row m-5 pt-5 h-100  w-50 text-center d-flex justify-content-center align-items-center">
+            <!-- <div class="col p-0 text-center d-flex justify-content-center align-items-center display-none h-100 imgDiv">
+         <img src="../../../assets/images/bgLogin.jpg" class="w-50 image"> 
+    </div> -->
+            <div class="col  bg-custom d-flex justify-content-center align-items-center h-100 flex-column w-50 ">
+                <form class="w-50 " [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-3 form-group">
+                        <input type="text" formControlName="username" class="form-control" id="exampleFormControlInput1" placeholder="User Name">
+                        <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched" class="help-block">
                     <span *ngIf="loginForm.get('username').errors['required']">
                         This field is required
                     </span>
-                </span>
-            </div>
-            <div class="mb-3" class="form-group">
-                <input type="password" id="password" class="form-control" name="password" formControlName="password" formControlName="password" placeholder="Password">
-                <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" class="help-block">
+                        </span>
+                    </div>
+                    <div class="mb-3" class="form-group">
+                        <input type="password" id="password" class="form-control" name="password" formControlName="password" formControlName="password" placeholder="Password">
+                        <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" class="help-block">
                     <span *ngIf="loginForm.get('password').errors['required']">
                         This field is required
                     </span>
-                <span *ngIf="loginForm.get('password').errors['minlength']">
+                        <span *ngIf="loginForm.get('password').errors['minlength']">
                         Enter Valid Pass with minLength equal 8
                     </span>
-                </span>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
                             Keep me logged in
                         </label>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <span class="help-block" *ngIf="this.error">
+                    <span class="help-block" *ngIf="this.error">
                 wrong email or password
             </span>
-            <button [disabled]="!loginForm.valid" type="submit" class="btn btn-custom btn-lg btn-block mt-3">Login
+                    <button [disabled]="!loginForm.valid" type="submit" class="btn btn-custom btn-lg btn-block mt-3">Login
                 Now</button>
-            <a class="btn btn-custom btn-lg btn-block mt-3 " [routerLinkActive]="['exact:true']" routerLink="../signup">
+                    <a class="btn btn-custom btn-lg btn-block mt-3 " [routerLinkActive]="['exact:true']" routerLink="../signup">
                 Sign
                 Up</a>
-        </form>
+                </form>
 
+            </div>
+        </div>
     </div>
 </div>

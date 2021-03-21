@@ -5,6 +5,21 @@ body {
     font-family: "Nunito Sans";
 }
 
+.imageback {
+    background-image: url("../../../assets/images/signup.jpg");
+    /* The image used */
+    background-color: #cccccc;
+    /* Used if the image is unavailable */
+    /* height: 500px; You must set a specified height */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
+}
+
 .form-control {
     line-height: 2;
 }

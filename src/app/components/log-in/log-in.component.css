@@ -5,6 +5,30 @@ body {
     font-family: "Nunito Sans";
 }
 
+.imgDiv {
+    background-image: url("../../../assets/images/bgLogin.jpg");
+    /* The image used */
+    background-color: #cccccc;
+    /* Used if the image is unavailable */
+    /* height: 500px; You must set a specified height */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
+    /* position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 0; */
+    /* -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px); */
+}
+
 .form-control {
     line-height: 2;
 }
