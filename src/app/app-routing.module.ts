@@ -34,6 +34,16 @@ import{ModifyproductComponent} from './components/modifyproduct/modifyproduct.co
 //
 
 
+import{AllusersOrdersComponent}from'./components/allusers-orders/allusers-orders.component'
+
+
+
+
+
+
+
+
+
 
 const routes: Routes = [
   //alaa
@@ -56,7 +66,7 @@ const routes: Routes = [
     {path:'', component:ProfileStartComponent},
     {path:'edit', component:EditProfileComponent},
     {path:'myOrders', component:UserOrdersComponent},
-
+    {path:'allOrders', component:AllusersOrdersComponent},
   ]},
     { path: 'promotions', component: PromotionsComponent },
     { path: '**', component: ErrorComponent },

@@ -1,0 +1,39 @@
+<p>products works!</p>
+
+<div class="container">
+<div class="row justify-content-around">
+    <mdb-card class="col-4" *ngFor="let product of products">
+        <!--Card image-->
+        <mdb-card-img src={{product.img}} alt="Card image cap"></mdb-card-img>
+        <!--Card content-->
+        <mdb-card-body>
+      
+          <!--Title-->
+          <mdb-card-title>
+            <h4>{{product.Name}}</h4>
+          </mdb-card-title>
+
+          <!--price-->
+          <mdb-card-title>
+            <h4>{{product.price}}<h3>EGP</h3></h4>
+          </mdb-card-title>
+
+           <!--resturantID-->
+          <mdb-card-title>
+            <h4>{{product.resturantID}}</h4>
+          </mdb-card-title>
+      
+          <!--Text-->
+          <mdb-card-text>{{product.status}} 
+          </mdb-card-text>
+      
+          <!-- <a href="#" mdbBtn color="primary" mdbWavesEffect> Add To Cart</a> -->
+
+          <button type="button" class="btn btn-dark btn-sm mr-1 mb-2">
+              <i class="fa fa-shopping-cart pr-2"><a  routerlinkactive="text-danger" (click)="addtocart(product.id)"> Add to cart</a></i>
+          </button>
+          
+        </mdb-card-body>
+      </mdb-card>
+</div>
+</div>

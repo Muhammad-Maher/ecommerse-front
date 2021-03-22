@@ -22,8 +22,9 @@ body {
     border-radius: 100px;
 }
 
-.account-settings .user-profile h5.user-name {
+.account-settings .user-profile a.user-name {
     margin: 0 0 0.5rem 0;
+    font-style: normal;
 }
 
 .account-settings .user-profile h6.user-email {

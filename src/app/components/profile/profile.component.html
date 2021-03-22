@@ -1,5 +1,5 @@
 <div style="margin-top: 5vw;"></div>
-<div class="container my-5">
+<div class="container">
     <div class="row gutters">
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
             <div class="card h-100">
@@ -9,13 +9,14 @@
                             <div *ngIf="userData" class="user-avatar">
                                 <img [src]="this.userData.img" alt="profile pic">
                             </div>
-                            <h5 *ngIf="userData != null" class="user-name">{{this.userData.username}}</h5>
+                            <a *ngIf="userData" [routerLinkActive]="['exact:true']" routerLink="/profile" class="user-name">{{this.userData.username}}</a>
 
                         </div>
-                        <div class="about">
+                        <div *ngIf="userData" class="about">
 
                             <a class="btn btn-custom btn-lg  btn-block mt-3 " [routerLinkActive]="['exact:true']" routerLink="/profile/myOrders"> My Orders</a>
                             <a class="btn btn-custom btn-lg  btn-block mt-3 " [routerLinkActive]="['exact:true']" routerLink="/profile/edit"> Edit profile</a>
+                            <a *ngIf="userData.status=='admin'" class="btn btn-custom btn-lg  btn-block mt-3 " [routerLinkActive]="['exact:true']" routerLink="/profile/allOrders">Get All Orders</a>
                         </div>
                     </div>
                 </div>

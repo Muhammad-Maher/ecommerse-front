@@ -22,7 +22,7 @@ import { CartComponent } from './components/cart/cart.component'//*
 //
 
 
-//alaa
+//
 
 import { HeaderComponent } from './components/header/header.component';//*
 import { FooterComponent } from './components/footer/footer.component';//*
@@ -58,7 +58,9 @@ import { DynamicGridListComponent } from './components/about/dynamic-grid-list/d
 import { ClickCursorDirective } from './directives/clickCursor.directive';
 import { ModifyproductComponent } from './components/modifyproduct/modifyproduct.component';
 import { DeleteProductComponent } from './components/delete-product/delete-product.component'
+//
 
+import { AllusersOrdersComponent } from './components/allusers-orders/allusers-orders.component';
 
 
 
@@ -104,7 +106,8 @@ import { DeleteProductComponent } from './components/delete-product/delete-produ
     EditProfileComponent,
     SearchComponent,
     ModifyproductComponent,
-    DeleteProductComponent
+    DeleteProductComponent,
+    AllusersOrdersComponent
     
 ],
 

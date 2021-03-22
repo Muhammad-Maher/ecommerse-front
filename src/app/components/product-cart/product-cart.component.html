@@ -1,0 +1,74 @@
+<p>product-cart works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="div">
+                <div class="div">
+                    <mdb-card>
+                        <mdb-card-body>
+
+                            <!-- Shopping Cart table -->
+                            <div class="table-responsive">
+
+                                <table class="table product-table">
+
+                                    <!-- Table head -->
+                                    <thead class="mdb-color dark-5">
+                                        <tr>
+                                            <th class="font-weight-bold">
+                                                <strong>Image</strong>
+                                            </th>
+                                            <th class="font-weight-bold">
+                                                <strong>Product</strong>
+                                            </th>
+
+                                            <th></th>
+                                            <th class="font-weight-bold">
+                                                <strong>Price</strong>
+                                            </th>
+
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <!-- /.Table head -->
+
+                                    <!-- Table body -->
+                                    <tbody>
+
+                                        <!-- First row -->
+                                        <tr *ngFor="let product of products">
+                                            <th scope="row">
+                                                <img src={{product.img}} alt="" class="img-fluid z-depth-0">
+                                            </th>
+                                            <td>
+                                                <h5 class="mt-3">
+                                                    <strong>{{product.name}}</strong>
+                                                </h5>
+                                            </td>
+
+                                            <td></td>
+                                            <td>{{{{product.price}}}}</td>
+
+                                            <td>
+                                                <button type="button" mdbBtn color="dark" size="sm" data-toggle="tooltip" data-placement="top" title="Remove item" (click)="updateorder($event)" >X
+                                    </button>
+                                            </td>
+                                        </tr>
+                                        <!-- /.First row -->
+                                        
+                                    </tbody>
+                                    <!-- /.Table body -->
+
+                                </table>
+
+                            </div>
+                            <!-- /.Shopping Cart table -->
+
+                        </mdb-card-body>
+
+                    </mdb-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

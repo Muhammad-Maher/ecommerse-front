@@ -1,10 +1,12 @@
 <div style="margin-top: 5vw;"></div>
-
-
-<div *ngIf="myOrders">
-    <div *ngFor="let item of myOrders" class="card mt-50 mb-50 ml-lg-5">
-        <div class="col d-flex"><span class="text-muted" id="orderno">order {{item._id}}</span></div>
+<div *ngIf="allOrders">
+    <div *ngFor="let item of allOrders" class="card mt-50 mb-50">
+        <div class="col d-flex"><span class="text-muted bold" id="orderno">order: {{item._id}}</span></div>
+        <div class="col d-flex"><span class="text-muted bold" id="orderno">user: {{item.userID.username}}</span></div>
+        <div class="col d-flex"><span class="text-muted bold" id="orderno">date: {{item.createdAt}}</span></div>
         <div class="gap">
+
+
             <div class="col-2 d-flex mx-auto"> </div>
         </div>
         <!-- <div class="title mx-auto"> Thank you for your order! </div> -->
@@ -40,13 +42,32 @@
 
                 </div>
             </div>
-            <div *ngIf="item.status==='pending'" class="total">
+            <div class="total">
                 <div class="row">
-                    <button class="mt-3" (click)="cancelOrder(item._id,item.userID._id)">Cancel order</button>
+
+                    <button class="btn" (click)="update(item._id)"> Edit Status</button>
 
 
                 </div>
             </div>
+
+            <div class="total">
+                <div style="display: none;" [id]='item._id' class="row">
+
+                    <form [formGroup]="ststusForm" (ngSubmit)="onSubmit(item._id,item.userID._id)">
+                        <label for="status">Choose status: </label>
+                        <select id="status" name="status" formControlName="status">
+                                <option value="delivered">Accepted</option>
+                                <option value="pending">Pending</option>
+                                <option value="processing">Rejected</option>
+                            </select>
+                        <button type="submit" name="change"> update </button>
+
+                    </form>
+                    <button (click)="cancel(item._id)">Cancel</button>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
