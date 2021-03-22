@@ -18,12 +18,12 @@ export class profile{
     }
   //  private RegisterURL: string = "https://ecommerce-food.herokuapp.com/api/register"
 
-    //server
-    // private profileUrl: string="https://ecommerce-food.herokuapp.com/api/user/profile"
+    server
+    private profileUrl: string="https://ecommerce-food.herokuapp.com/api/user/profile"
 
 
     // //local
-    private profileUrl: string="http://localhost:3000/api/user/profile"
+    // private profileUrl: string="http://localhost:3000/api/user/profile"
 
 
 

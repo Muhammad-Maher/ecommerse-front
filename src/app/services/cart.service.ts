@@ -19,10 +19,10 @@ export class CartService {
     
   }
 
-  //  private baseURL:string = `https://ecommerce-food.herokuapp.com/api/cart`;  
+   private baseURL:string = `https://ecommerce-food.herokuapp.com/api/cart`;  
   
   ////Local
-  private baseURL:string = `http://localhost:3000/api/cart`;  
+  // private baseURL:string = `http://localhost:3000/api/cart`;  
   
 
   public setCartItems(value: number) {
