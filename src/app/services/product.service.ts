@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient ,HttpHeaders} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
@@ -14,15 +14,15 @@ export class ProductService {
   
   constructor(private http: HttpClient) {  }
   //server
-  private baseURL:string = `https://ecommerce-food.herokuapp.com/api`;  
-  private promotionsURL:string = "https://ecommerce-food.herokuapp.com/api/product/offers";
-  private localURL:string = "https://ecommerce-food.herokuapp.com/api/product";
+  // private baseURL:string = `https://ecommerce-food.herokuapp.com/api`;  
+  // private promotionsURL:string = "https://ecommerce-food.herokuapp.com/api/product/offers";
+  // private localURL:string = "https://ecommerce-food.herokuapp.com/api/product";
   
 
   // //local
-  // private baseURL:string = `http://localhost:3000/api`;  
-  // private promotionsURL:string = "http://localhost:3000/api/product/offers";
-  // private localURL:string = "http://localhost:3000/api/product";
+  private baseURL:string = `http://localhost:3000/api`;  
+  private promotionsURL:string = "http://localhost:3000/api/product/offers";
+  private localURL:string = "http://localhost:3000/api/product";
   
 
   getToken()
@@ -37,6 +37,9 @@ export class ProductService {
     }
 }
 
+
+
+
   
   getPromotions(){
     return this.http.get<Product>(this.baseURL+`/product/offers`);
@@ -44,7 +47,7 @@ export class ProductService {
 
 
   getAllProducts(){
-    return this.http.get<Product>(this.baseURL+`/order/all`);
+    return this.http.get<Product>(this.baseURL+`/product/all`);
   }    
 
 
@@ -60,15 +63,16 @@ export class ProductService {
 
   postProduct(formData:FormData){
     //const formData = new FormData();
-    return this.http.post(this.localURL,formData,  {headers:{authorization:this.getToken()}})
+    return this.http.post(this.localURL,formData, {headers:{authorization:this.getToken()}})
   }
 
   deleteProduct(id){
-    return this.http.delete(this.baseURL+`/product/${id}`, {headers:{authorization:this.getToken()}});
+  
+    return this.http.delete(this.baseURL+`/product/${id}`,{headers:{authorization:this.getToken()}});
   }
 
-  updateProduct(id){
-    return this.http.patch(this.baseURL+"/"+id, {headers:{authorization:this.getToken()}})
+  updateProduct(id,updateValues){    
+    return this.http.patch(this.baseURL+"/product/"+id, updateValues,{headers:{authorization:this.getToken()}})
   }
 
 

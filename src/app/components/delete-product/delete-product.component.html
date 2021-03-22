@@ -1,23 +1,36 @@
 <div style="margin-top: 5vw;"></div>
 <div style="margin-top: 5vw;"></div>
 <div class="container pb-4">
-    <div class="row m-5">
-        <div class="w-75 d-flex justify-content-between">
-            <div class="col-xs-6 d-flex">
+    <div class="row m-5 w-100">
+        <div class="w-10 d-flex justify-content-between align-items-center">
+            <div class="col d-flex w-100">
 
-                <label for="productID" class="col-sm">
-                    productID
-                </label>
+                <div class="col d-flex  justify-content-between align-items-center" style="width: 400px">
+                    <label for="productID" class="col-sm">
+                    productID:
+                    </label>
 
-                <input #productID="ngModel" [(ngModel)]='id' ngModel name="productID" id="productID" type="text" class="form-control" required>
+                    <input #productID="ngModel" [(ngModel)]='id' ngModel name="productID" id="productID" type="text" class="form-control " style="width: 200px; height: 30px;" required>
+
+                </div>
+
+
+                <div class="col d-flex justify-content-between align-items-center" style="width: 300px;">
+                    <label for="productName" style="width: 100px;" class="col-sm">
+                        product Name:
+                    </label>
+                    <select class="form-select " style="width: 100px;" aria-label="Default select example" (change)="onChange($event.target.value)" *ngIf="item != 'undefined'">                        
+                    <option *ngFor="let item of allproducts" value="{{item._id}}" selected>{{item.Name}}</option>                    
+                  </select>
+                </div>
+
             </div>
-            <div class="col-xs-3 ">
-
-
+            <div class="col ">
                 <button type="button" (click)='geTheProduct()' class="btn btn-primary float-right">get the product</button>
             </div>
         </div>
     </div>
+
     <div *ngIf='item && item.Name'>
         <div class="row">
             <div class="col-md-6 mt-5">
@@ -88,6 +101,9 @@
                     </div>
                 </div>
             </div>
+
+
+
         </div>
     </div>
 </div>

@@ -15,11 +15,27 @@ export class ModifyproductComponent implements OnInit {
   subscriber
   item
   id = 0;
+  allproducts
+  subscriberAll
+
   ngOnInit() {
 
+    this.subscriberAll = this.productService.getAllProducts().subscribe((res)=>{
+      this.allproducts = res;
+      console.log(res);
+    },
+    err=>{
+      console.log(err);
+
+    })
    
     
 
+  }
+
+  onChange(val){
+    this.id = val;
+    console.log(val)
   }
 
 
@@ -41,21 +57,15 @@ export class ModifyproductComponent implements OnInit {
   avatar;
 
   save(product){
-    const formData = new FormData();
+    
 
-    formData.append('avatar',this.avatar);
-    formData.append("Name",this.item.Name);
-    formData.append('status',this.item.status);
-    formData.append('Price',this.item.price);
-    formData.append('resturantID',this.item.resturantID);
+    const data={'avatar':this.avatar, "Name": this.item.Name , 'status':this.item.status, 'Price':this.item.Price , 'resturantID':this.item.resturantID._id}
 
-    console.log(formData)
-    console.log(this.item.name)
-    console.log(this.item.status)
-    console.log(this.item.price)
-    console.log(this.item.resturantID)
-    this.productService.updateProduct(this.id).subscribe(data => {
-      this.prp = data;
+    
+    
+
+    this.productService.updateProduct(this.id,data).subscribe(data => {     
+      alert("updated successfully")
     })
 
     
@@ -76,6 +86,11 @@ export class ModifyproductComponent implements OnInit {
     };
     reader.readAsDataURL(file);
    
+  }
+
+  ngOnDestroy(){
+  // this.subscriber.unsubscribe();
+  // this.subscriberAll.unsubscribe();
   }
 
 }

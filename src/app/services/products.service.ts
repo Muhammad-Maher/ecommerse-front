@@ -19,11 +19,11 @@ export class ProductsService {
     // })
   }
   //server
-  private baseurl:string ="https://ecommerce-food.herokuapp.com/api/product";
+  // private baseurl:string ="https://ecommerce-food.herokuapp.com/api/product";
   
 
   // //local
-  // private baseurl:string ="http://localhost:3000/api/product";
+  private baseurl:string ="http://localhost:3000/api/product";
 
  // myObservable:Observable<Array<{name,price}>>;
 

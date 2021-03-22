@@ -16,15 +16,15 @@ export class Auth{
     }
     
     //server
-    private RegisterURL: string = "https://ecommerce-food.herokuapp.com/api/register"
+    // private RegisterURL: string = "https://ecommerce-food.herokuapp.com/api/register"
     
-    private logIn: string="https://ecommerce-food.herokuapp.com/api/login"
+    // private logIn: string="https://ecommerce-food.herokuapp.com/api/login"
     
     
     // //local
-    // private RegisterURL: string = "http://localhost:3000/api/register"
+    private RegisterURL: string = "http://localhost:3000/api/register"
     
-    // private logIn: string="http://localhost:3000/api/login"
+    private logIn: string="http://localhost:3000/api/login"
     
     AddUser(newUser){        
              

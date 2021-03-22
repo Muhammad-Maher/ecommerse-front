@@ -31,11 +31,21 @@ export class AddProductComponent implements OnInit {
     console.log(product.status)
     console.log(product.price)
     console.log(product.resturantID)
-    this.productService.postProduct(formData).subscribe(data => {
-      this.prp = data;
-    })
+    console.log(this.avatar)
 
-    
+      if(this.avatar == undefined)
+      {
+        alert("please input image")
+      }
+      else
+      {
+
+        this.productService.postProduct(formData).subscribe(data => {
+          this.prp = data;
+          alert("product added successfully")
+        })
+      }
+
 
   
     

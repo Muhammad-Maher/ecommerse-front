@@ -38,15 +38,8 @@ adminCheck
              
     })
 
-    this.profile.getProfile()
-    this.userProfile=this.profile.profile.subscribe(res=>{
-      console.log(res)
-      this.userData=res["userData"]
-      // console.log(this.userData.status)
-      this.adminCheck=this.userData.status
-      this.admin.setadmin(this.adminCheck);
-      
-    })
+   
+
     this.errorSub= this.myService.error.subscribe(err=>{
      
       console.log(err);
@@ -58,6 +51,17 @@ adminCheck
   onSubmit() {
     console.log(this.loginForm);
     this.myService.myLogIn(this.loginForm);
+
+
+    this.profile.getProfile()
+    this.userProfile=this.profile.profile.subscribe(res=>{
+      console.log(res)
+      this.userData=res["userData"]
+      // console.log(this.userData.status)
+      this.adminCheck=this.userData.status
+      this.admin.setadmin(this.adminCheck);      
+    })
+
   }
   ngOnDestroy(){
     this.errorSub.unsubscribe();

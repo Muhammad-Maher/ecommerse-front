@@ -12,8 +12,11 @@ export class SearchService {
   searchSub = new Subject()
   constructor(private myclient:HttpClient , private router:Router) { }
 
-  private baseurl:string ="https://ecommerce-food.herokuapp.com/api/search";
-  // private baseurl:string ="http://localhost:3000/api/search";
+  //server
+  // private baseurl:string ="https://ecommerce-food.herokuapp.com/api/search";
+
+  //loacl
+  private baseurl:string ="http://localhost:3000/api/search";
   
 //   getProductsByName(name:string):Observable<servserResponsep>{
 //     return this.myclient.post<servserResponsep>(this.baseurl,name);

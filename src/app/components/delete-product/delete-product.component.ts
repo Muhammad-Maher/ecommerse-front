@@ -17,11 +17,26 @@ export class DeleteProductComponent implements OnInit {
   id = 0;
   img
   deleteSubscriber
+  allproducts
+  subscriberAll
   ngOnInit() {
 
+    this.subscriberAll = this.productService.getAllProducts().subscribe((res)=>{
+      this.allproducts = res;
+      console.log(res);
+    },
+    err=>{
+      console.log(err);
+
+    })
    
     
 
+  }
+
+  onChange(val){
+    this.id = val;
+    console.log(val)
   }
 
 
@@ -47,9 +62,9 @@ export class DeleteProductComponent implements OnInit {
     
     this.deleteSubscriber = this.product.deleteProduct(this.id).subscribe((res)=>{
       if(res == "product removed successfully"){
+        alert("product removed")
+        this.return()
       }
-      alert("product removed")
-      this.return()
     },
     (error)=>{
       console.log(error)
@@ -79,6 +94,10 @@ export class DeleteProductComponent implements OnInit {
   //   reader.readAsDataURL(file);
    
   // }
+  ngOnDestroy(){
+    // this.subscriber.unsubscribe();
+    // this.subscriberAll.unsubscribe();
+    }
 
 
 }
