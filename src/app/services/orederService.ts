@@ -30,13 +30,30 @@ export class Order {
         }
     }
 
+    getId()
+    {
+        const Id=localStorage.getItem("id");
+        if(Id==null)
+        {
+            return ' ';
+        }
+        else{
+            return Id;
+        }
+    }
     
 
   private cancelOrderUrl :string="https://ecommerce-food.herokuapp.com/api/order"
  // private cancelOrderUrl :string="http://localhost:3000/api/order"
     private AllOrdersUrl : string="https://ecommerce-food.herokuapp.com/api/order/all"
     private updateStatusUrl : string="https://ecommerce-food.herokuapp.com/api/order"
+    private createUrl : string="https://ecommerce-food.herokuapp.com/api/order"
 
+
+    createOrder(order){
+        return this.myClient.post(this.createUrl+`/${this. getId()}`,order,{ headers: { authorization:this.getToken()}})
+    }
+    
     cancelOrder(userId , OrderId){
         console.log(userId)
         console.log(OrderId)

@@ -15,6 +15,13 @@
     src: url('http://www.shopperfont.com/font/Shopper-Std.ttf');
 } */
 
+.mkOrderBtn {
+    width: 300px;
+    cursor: pointer;
+    height: 50px;
+    font-size: 20px;
+}
+
 .shopper {
     text-transform: lowercase;
     font: 2em 'Shopper', sans-serif;

@@ -19,9 +19,9 @@ export class UserOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.orderSub=this.myService.profile.subscribe(res=>{
-      console.log(res)
+      
        this.myOrders=res["userOrders"]
-      console.log(this.myOrders) 
+      
     })
     this.errorSub= this.myService.error.subscribe(err=>{
       let error=err

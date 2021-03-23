@@ -68,8 +68,9 @@ export class CartService {
   }
 
  
-  updateCart(formData:FormData){
-    return this.http.put(this.baseURL+"/update",formData)
+  updateCart(body){
+    body.userID = this. getId();
+    return this.http.patch(this.baseURL+"/update",body,{headers:{authorization:this.getToken()}})
   }
 
   RemoveFromCart(productID,index){

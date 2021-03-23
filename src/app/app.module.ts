@@ -52,6 +52,8 @@ import{SearchService} from './services/search.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 //material
 import {MatGridListModule} from '@angular/material/grid-list';
 import { DynamicGridListComponent } from './components/about/dynamic-grid-list/dynamic-grid-list.component';
@@ -78,7 +80,8 @@ import { AllusersOrdersComponent } from './components/allusers-orders/allusers-o
     MatPaginatorModule,
     NgbModule,
     MatGridListModule,
-    
+    MatButtonToggleModule,
+    MatButtonModule
             
   ],
 

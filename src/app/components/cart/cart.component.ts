@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 declare var $: any;
 import{CartService}from'../../services/cart.service'
 import { NavigationService } from '../../services/navigation-service.service'
+import { Order } from '../../services/orederService'
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-cart',
@@ -12,7 +13,7 @@ import { Subscription } from 'rxjs';
 
 export class CartComponent implements OnInit {
 
-  constructor(private cart:CartService, private navigate:NavigationService) { }
+  constructor(private cart:CartService, private navigate:NavigationService,private Order:Order) { }
   items
   subscriber
   cartItems
@@ -48,6 +49,33 @@ export class CartComponent implements OnInit {
     })
 
   }
+
+  btnClick(event){
+    const order ={
+      productID:this.items.productID,
+      total:this.total,
+      status:"pending"}
+
+    this.Order.createOrder(order).subscribe((res)=>{
+
+      alert("order created successfully, its status is pending");
+      this.items.productID = [];
+      this.total = 0;
+      this.cart.setCartItems(0);
+    },
+    err=>{
+
+    })
+
+    const cartBody ={productID : []}
+
+    this.cart.updateCart(cartBody).subscribe((res)=>{
+
+
+    })
+
+  }
+
   ngOnInit(): void {
 
     this.subscriber = this.cart.getCart().subscribe((res)=>{
@@ -64,10 +92,6 @@ export class CartComponent implements OnInit {
     (error)=>{
       console.log(error)
     })
-
-   
-   
-  
 
 
     $('.visibility-cart').on('click',function(){
