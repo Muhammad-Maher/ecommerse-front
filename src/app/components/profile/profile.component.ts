@@ -17,9 +17,9 @@ export class ProfileComponent implements OnInit {
     
     this.myService.getProfile()
     this.myProfile=this.myService.profile.subscribe(res=>{
-      console.log(res)
+      
       this.userData=res["userData"]
-      console.log(this.userData.username)
+      
       
       
     })

@@ -13,106 +13,106 @@
 
                         <div class="form-group">
                             <label for="username">User Name</label>
-                            <input type="text" formControlName="username" class="form-control" id="username" placeholder="Enter user name">
+                            <input type="text" formControlName="username" class="form-control" id="username" placeholder="Enter user name" [value]="username">
 
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="form-group">
-                            <label for="password">PassWord</label>
-                            <input type="password" formControlName="password" class="form-control" id="password" placeholder="Enter PassWord">
-                            <span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched" class="help-block">
+                    <div class=" col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 ">
+                        <div class="form-group ">
+                            <label for="password ">PassWord</label>
+                            <input type="password " formControlName="password" class="form-control " id="password " placeholder="Enter PassWord " disabled>
+                            <span *ngIf="!signupForm.get( 'password').valid && signupForm.get( 'password').touched " class="help-block ">
                             
-                            <span *ngIf="signupForm.get('password').errors['minlength']">
+                            <span *ngIf="signupForm.get( 'password').errors[ 'minlength'] ">
                                 Enter Valid Pass with minLength equal 8
                             </span>
                             </span>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="form-group">
-                            <label for="fname">First Name</label>
-                            <input type="text" formControlName="fname" class="form-control" id="fname" placeholder="Enter first name ">
-                            <span *ngIf="!signupForm.get('fname').valid && signupForm.get('fname').touched" class="help-block">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 ">
+                        <div class="form-group " *ngIf="userData !='undefined' ">
+                            <label for="fname ">First Name</label>
+                            <input type="text " formControlName="fname" class="form-control " id="fname " placeholder="Enter first name " [value]="fname">
+                            <span *ngIf="!signupForm.get( 'fname').valid && signupForm.get( 'fname').touched " class="help-block ">
                                
-                                <span *ngIf="signupForm.get('fname').errors['name has numbers']">
+                                <span *ngIf="signupForm.get( 'fname').errors[ 'name has numbers'] ">
                                     Name Shouldn't contain numbers
                                 </span>
-                            <span *ngIf="signupForm.get('fname').errors['minlength'] || signupForm.get('fname').errors['maxlength']">
+                            <span *ngIf="signupForm.get( 'fname').errors[ 'minlength'] || signupForm.get( 'fname').errors[ 'maxlength'] ">
                                     Enter Valid name with minLength equal and maxLength equal 8
                                 </span>
                             </span>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="form-group">
-                            <label for="lname">Last Name</label>
-                            <input type="text" formControlName="lname" class="form-control" id="lname" placeholder="Enter last name ">
-                            <span *ngIf="!signupForm.get('lname').valid && signupForm.get('lname').touched" class="help-block">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 ">
+                        <div class="form-group ">
+                            <label for="lname ">Last Name</label>
+                            <input type="text " formControlName="lname" class="form-control " id="lname " placeholder="Enter last name " [value]="lname">
+                            <span *ngIf="!signupForm.get( 'lname').valid && signupForm.get( 'lname').touched " class="help-block ">
                                
-                                <span *ngIf="signupForm.get('lname').errors['name has numbers']">
+                                <span *ngIf="signupForm.get( 'lname').errors[ 'name has numbers'] ">
                                     Name Shouldn't contain numbers
                                 </span>
-                            <span *ngIf="signupForm.get('lname').errors['minlength'] || signupForm.get('lname').errors['maxlength']">
+                            <span *ngIf="signupForm.get( 'lname').errors[ 'minlength'] || signupForm.get( 'lname').errors[ 'maxlength'] ">
                                     Enter Valid name with minLength equal and maxLength equal 8
                                 </span>
                             </span>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="form-group">
-                            <label for="eMail">Email</label>
-                            <input type="email" class="form-control" formControlName="email" id="eMail" placeholder="Enter email ID">
-                            <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched" class="help-block">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 ">
+                        <div class="form-group ">
+                            <label for="eMail ">Email</label>
+                            <input type="email " class="form-control " formControlName="email" id="eMail " placeholder="Enter email ID " ngModel [value]="mail">
+                            <span *ngIf="!signupForm.get( 'email').valid && signupForm.get( 'email').touched " class="help-block ">
                     
-                                <span *ngIf="signupForm.get('email').errors['email']">
+                                <span *ngIf="signupForm.get( 'email').errors[ 'email'] ">
                                     Please enter Valid Mail: test@site.com
                                 </span>
                             </span>
                         </div>
                     </div>
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="Enter phone number">
-                            <span *ngIf="!signupForm.get('phone').valid && signupForm.get('phone').touched" class="help-block">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 ">
+                        <div class="form-group ">
+                            <label for="phone ">Phone</label>
+                            <input type="text " class="form-control " formControlName="phone" id="phone " placeholder="Enter phone number " [value]="Phone">
+                            <span *ngIf="!signupForm.get( 'phone').valid && signupForm.get( 'phone').touched " class="help-block ">
                                 
-                                <span *ngIf="signupForm.get('phone').errors['age has chars']">
+                                <span *ngIf="signupForm.get( 'phone').errors[ 'age has chars'] ">
                                     Phone should be numbers only
                                 </span>
-                            <span *ngIf="signupForm.get('phone').errors['minlength'] || signupForm.get('phone').errors['maxlength']">
+                            <span *ngIf="signupForm.get( 'phone').errors[ 'minlength'] || signupForm.get( 'phone').errors[ 'maxlength'] ">
                                     Phone Number of 11 numbers only
                                 </span>
                             </span>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="form-group">
-                            <label for="phone">Address</label>
-                            <input type="text" class="form-control" id="phone" placeholder="Enter Address">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 ">
+                        <div class="form-group ">
+                            <label for="phone ">Address</label>
+                            <input type="text " class="form-control " id="phone " placeholder="Enter Address" [value]="Address">
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <label for="governorater">Choose your Governorate: </label>
-                        <select id="governorater" name="governorater" formControlName="gover">
-                            <option value="Ismailia">Ismailia</option>
-                            <option value="Alexandria">Alexandria</option>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 ">
+                        <label for="governorater ">Choose your Governorate: </label>
+                        <select id="governorater " name="governorater " formControlName="gover">
+                            <option value="Ismailia " >Ismailia</option>
+                            <option value="Alexandria " >Alexandria</option>
 
-                            <option value="Cairo">Cairo</option>
-                            <option value="Port Said">Port Said</option>
-                            <option value="Suez">Suez</option>
+                            <option value="Cairo " >Cairo</option>
+                            <option value="Port Said " >Port Said</option>
+                            <option value="Suez " >Suez</option>
 
                         </select>
                     </div>
 
                     <div class="row gutters ">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                             <div class="text-right ml-3 ">
 
-                                <button type="submit" id="submit" name="submit" class="btn btn-custom btn-lg" [disabled]="!signupForm.valid">Update</button>
+                                <button type="submit " id="submit " name="submit " class="btn btn-custom btn-lg ">Update</button>
 
-                                <button type="button" id="submit" name="submit" class="btn btn-custom btn-lg">Cancel</button>
+                                <button type="button " id="submit" name="submit" class="btn btn-custom btn-lg ">Cancel</button>
 
                             </div>
                         </div>

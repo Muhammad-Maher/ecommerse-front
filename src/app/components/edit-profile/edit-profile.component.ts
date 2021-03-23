@@ -11,9 +11,34 @@ import{profile}from'../../services/profile'
 })
 export class EditProfileComponent implements OnInit {
   signupForm: FormGroup
+  userData
+  username
+  fname
+  lname
+  mail
+  Address
+  Phone
+  governorater
+  country
+  userSubscriber
   constructor(private myService:profile) { }
 
   ngOnInit(): void {
+
+    this.myService.getProfile()
+    this.userSubscriber = this.myService.profile.subscribe(res => {
+      this.userData= res["userData"]      
+      this.username= this.userData.username;
+      this.fname= this.userData.fname;
+      this.lname= this.userData.lname;
+      this.mail= this.userData.mail;
+      this.Address= this.userData.Address;
+      this.Phone= this.userData.Phone;
+      this.governorater= this.userData.governorater;
+      this.country= this.userData.country;
+    })
+
+
     this.signupForm = new FormGroup({
       'fname': new FormControl(null, [ this.charOnly.bind(this),
       Validators.minLength(3), Validators.maxLength(8)]),
@@ -31,12 +56,25 @@ export class EditProfileComponent implements OnInit {
 
   });
 
+  
+
   }
   
   //////////Submit
   onSubmit(){
-   console.log(this.signupForm)
-   this.myService.editProfile(this.signupForm)
+    
+    const form = { 
+      "username":this.signupForm.value.username||this.username,
+      "fname":this.signupForm.value.fname||this.fname, 
+      "lname":this.signupForm.value.lname||this.lname, 
+       "Address":this.signupForm.value.address||this.Address,
+        "Phone":this.signupForm.value.phone||this.Phone,
+        "mail":this.signupForm.value.email||this.mail            
+      }
+     
+     
+      
+   this.myService.editProfile(form)
   }
   
   charOnly(control: FormControl): { [s: string]: boolean } {

@@ -18,11 +18,11 @@ export class profile{
     }
   //  private RegisterURL: string = "https://ecommerce-food.herokuapp.com/api/register"
 
-    server
+    // server
     private profileUrl: string="https://ecommerce-food.herokuapp.com/api/user/profile"
 
 
-    // //local
+    //local
     // private profileUrl: string="http://localhost:3000/api/user/profile"
 
 
@@ -44,23 +44,24 @@ getToken()
     getProfile()
     {
         this.myClient.get(this.profileUrl+'/'+this.getId() , {headers:{authorization:this.getToken()}}).subscribe(res=>{
-            console.log(res)
+            
             this.profile.next(res)
 
         } , err=>{
-            console.log(err)
+           
             this.error.next(err)
         })
     }
+
     editProfile(prfileData)
     {
-        this.myClient.patch(this.profileUrl ,prfileData, {headers:{authorization:this.getToken()}}).subscribe(res=>{
-            console.log(res)
-            //this.profile.next(res)
-
+        
+        this.myClient.patch(this.profileUrl+'/'+this.getId() ,prfileData, {headers:{"authorization":this.getToken()}}).subscribe(res=>{
+           alert ("profile updated")
+           this.router.navigate(['/']);
         } , err=>{
             console.log(err)
-            //this.error.next(err)
+            
         })
     }
     getId()

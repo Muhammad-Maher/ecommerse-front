@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Auth } from '../../services/auth'
-import { AdminService } from '../../services/admin.service'
 import { profile} from '../../services/profile'
 import { HeaderComponent } from '../header/header.component'
 
@@ -13,13 +12,13 @@ import { HeaderComponent } from '../header/header.component'
 })
 export class LogInComponent implements OnInit {
 
-  constructor(private myService:Auth, private admin:AdminService, private profile: profile) { }
+  constructor(private myService:Auth,  private profile: profile) { }
   loginForm: FormGroup
   private errorSub: Subscription;
   error= null
   myToken=null
   private LogSub:Subscription;
-adminCheck
+
   subscriber
   userProfile
   userData
@@ -58,8 +57,7 @@ adminCheck
       console.log(res)
       this.userData=res["userData"]
       // console.log(this.userData.status)
-      this.adminCheck=this.userData.status
-      this.admin.setadmin(this.adminCheck);      
+           
     })
 
   }
