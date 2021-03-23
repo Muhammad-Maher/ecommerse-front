@@ -32,6 +32,11 @@ export class HeaderComponent implements OnInit {
   adminCheck
   userProfile
 
+  isCollapsed = true;
+  toggleCollapsed(): void {
+    this.isCollapsed = !this.isCollapsed;
+  }
+  
   ngOnInit(): void {
     console.log("Headers")
     this.token = localStorage.getItem("token");

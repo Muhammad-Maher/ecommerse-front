@@ -1,84 +1,82 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top  navheight">
-    <div class="container-fluid">
-        <div class="row w-100 d-flex justify-content-between">
-            <a class="navbar-brand " href="#">ElAkeeel</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse w-75 d-flex justify-content-between" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="allProducts">Home <span
-                            class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/about">About</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/restaurants">Restaurants</a>
-                </li> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container-fluid ">
+        <a class="navbar-brand " href="#">ElAkeeel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleCollapsed()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    <li *ngIf="this.token" class="nav-item">
-                        <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/cart">Cart</a>
-                    </li>
-                    <li *ngIf="this.token" class="nav-item">
-                        <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/userorder">UserOrder</a>
-                    </li>
-                    <li *ngIf="this.token" class="nav-item">
-                        <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/profile">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/promotions">Promotions</a>
-                    </li>
-                    <li *ngIf="this.token && this.adminCheck == 'admin'" class="nav-item">
-                        <div ngbDropdown class="d-inline-block">
-                            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Product options</button>
-                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <li class="nav-item">
+                    <a class="nav-link active" [routerLinkActive]="['exact:true']" routerLink="allProducts">Home <span
+                        class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link " [routerLinkActive]="['exact:true']" routerLink="/about">About</a>
+                </li>
+
+                <li *ngIf="this.token" class="nav-item">
+                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/cart">Cart</a>
+                </li>
+
+                <li *ngIf="this.token" class="nav-item">
+                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/userorder">UserOrder</a>
+                </li>
+
+                <li *ngIf="this.token" class="nav-item">
+                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/profile">Profile</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/promotions">Promotions</a>
+                </li>
+
+                <li *ngIf="this.token && this.adminCheck == 'admin'" class="nav-item mr-3 mb-3">
+                    <div ngbDropdown class="d-inline-block">
+                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Product options</button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
 
 
 
-                                <a ngbDropdownItem class="nav-link mr-3  " [routerLinkActive]="[ 'exact:true'] " routerLink="/addproduct">AddProduct</a>
+                            <a ngbDropdownItem class="nav-link mr-3  " [routerLinkActive]="[ 'exact:true'] " routerLink="/addproduct">AddProduct</a>
 
-                                <a ngbDropdownItem class="nav-link mr-3  " [routerLinkActive]="[ 'exact:true'] " routerLink="/modifyProduct">modifyProduct</a>
+                            <a ngbDropdownItem class="nav-link mr-3  " [routerLinkActive]="[ 'exact:true'] " routerLink="/modifyProduct">modifyProduct</a>
 
-                                <a ngbDropdownItem class="nav-link mr-3  " [routerLinkActive]="[ 'exact:true'] " routerLink="/DeleteProduct">DeleteProduct</a>
-                            </div>
+                            <a ngbDropdownItem class="nav-link mr-3  " [routerLinkActive]="[ 'exact:true'] " routerLink="/DeleteProduct">DeleteProduct</a>
                         </div>
+                    </div>
+                </li>
 
 
 
-                    </li>
-                    <li *ngIf="!this.token " class="nav-item mr-3 ">
-                        <a class="btn btn-outline-primary " [routerLinkActive]="[ 'exact:true'] " routerLink="/login">Log in</a>
-                    </li>
-                    <li *ngIf="!this.token " class="nav-item ">
-                        <a class="btn btn-outline-primary " [routerLinkActive]="[ 'exact:true'] " routerLink="/signup">Sign Up</a>
-                    </li>
-                </ul>
+                <li *ngIf="!this.token" class="nav-item mr-3 mb-3">
+                    <a class="btn btn-outline-primary " [routerLinkActive]="[ 'exact:true'] " routerLink="/login">Log in</a>
+                </li>
 
-                <ul class="navbar-nav ml-5 " *ngIf="this.token ">
-                    <li class="nav-item mr-3 ">
-                        <button type="button " class="btn btn-outline-primary " (click)="logOut() ">LogOut</button>
-                    </li>
-                    <li>
-                        <form class=" d-flex mr-auto " [formGroup]="myform">
-                            <input class="form-control me-2 inputSearch " formControlName="body" (mousedown)="checkToken()" type="search " placeholder="Search" aria-label="Search ">
-                            <button class="btn btn-dark" type="submit" (click)="getProductsByName()">Search</button>
-                        </form>
-                    </li>
-                    <li class="pl-3 ">
-                        <a [routerLinkActive]="[ 'exact:true'] " routerLink="/cart">
-                            <i class="fas fa-shopping-cart cart "></i>
-                            <span class="badge badge-pill badge-primary ml-2 cartBadge ">{{cartItems }}</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                <li *ngIf="!this.token " class="nav-item mb-3">
+                    <a class="btn btn-outline-primary " [routerLinkActive]="[ 'exact:true'] " routerLink="/signup">Sign Up</a>
+                </li>
+
+                <li class="nav-item mb-3" *ngIf="this.token">
+                    <button type="button " class="btn btn-outline-primary " (click)="logOut() ">LogOut</button>
+                </li>
+
+            </ul>
+
+            <form class="d-flex ml-3 align-items-center " [formGroup]="myform">
+                <input class="form-control me-2 inputSearch " formControlName="body" (mousedown)="checkToken()" type="search " placeholder="Search" aria-label="Search ">
+                <button class="btn btn-dark" type="submit" (click)="getProductsByName()">Search</button>
+                <a *ngIf="this.token" [routerLinkActive]="[ 'exact:true'] " routerLink="/cart" class="ml-3">
+                    <i class="fas fa-shopping-cart cart"><span class="badge badge-pill badge-primary ml-2 cartBadge ">{{cartItems }}</span></i>
+
+                </a>
+            </form>
 
         </div>
-
-
     </div>
-
-
 </nav>
