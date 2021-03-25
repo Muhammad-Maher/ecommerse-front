@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
   selectedValueOptions
   adminCheck
   userProfile
-
+  username
   isCollapsed = true;
   toggleCollapsed(): void {
     this.isCollapsed = !this.isCollapsed;
@@ -72,9 +72,9 @@ export class HeaderComponent implements OnInit {
 
 
     this.profile.getProfile()
-    this.userProfile = this.profile.profile.subscribe(res => {
-      // console.log(res)
-      this.adminCheck = res["userData"].status
+    this.userProfile = this.profile.profile.subscribe(res => {     
+      this.adminCheck = res["userData"].status;   
+      this.username = res["userData"].username;
     })
 
 
@@ -96,9 +96,9 @@ export class HeaderComponent implements OnInit {
 
   getProductsByName() {
 
-    //  console.log(this.myform.get('body').value)
+    
     this.myservice.getProductByname(this.myform.get('body').value)
-    // console.log(this.myform.get('body').value)
+    this.router.navigate(['/search'])
   }
 
   ngOnDestroy() {

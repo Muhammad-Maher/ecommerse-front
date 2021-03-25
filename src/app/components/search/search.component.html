@@ -16,7 +16,7 @@
                         <div class="card mb-4" style="width: 18rem;" *ngIf="i < 6 ">
                             <img [src]="item.img" class="card-img-top  card-img-top" [alt]="item.name">
                             <div class="card-body d-flex flex-column  justify-content-center align-items-center">
-                                <h5 class="card-title">{{item.Name}}</h5>
+                                <h3 class="card-title">{{item.Name}}</h3>
                                 <p class="card-text">{{item.status}} | price:{{item.Price}} </p>
                                 <p>
                                     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here,
@@ -28,12 +28,12 @@
                                     <span><h3 style="display: inline-block;">{{item.resturantID.Name}}</h3></span>
                                 </div>
 
-                                <!-- <a routerLink="/product/{{item.resturantID._id}}/{{item._id}}" class="btn btn-primary">See More</a> -->
                                 <div class="share-button">
                                     <span>More </span>
-                                    <a href="#"><i class="fas fa-info-circle"></i>Info</a>
+                                    <a [routerLinkActive]="[ 'exact:true'] " routerLink="/product/{{item._id}}"><i class="fas fa-info-circle"></i>Info</a>
                                     <a *ngIf="this.token" (click)="addToCart(item._id)"><i class="fas fa-cart-plus"></i>Cart</a>
                                 </div>
+
                             </div>
                         </div>
 

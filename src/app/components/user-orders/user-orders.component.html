@@ -1,7 +1,7 @@
 <div style="margin-top: 5vw;"></div>
-<div class="container w-100" *ngIf="myOrders">
+<div class="container w-100" *ngIf="myOrders != undefined">
     <div class="row">
-        <div class="col-sm-4" *ngFor="let item of myOrders">
+        <div class="col-sm-6" *ngFor="let item of myOrders">
             <div class="card mt-50 mb-50 ml-lg-5 ">
                 <div class="col d-flex"><span class="text-muted" id="orderno">order {{item._id}}</span></div>
                 <div class="gap">

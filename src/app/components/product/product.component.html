@@ -1,2 +1,34 @@
 <div style="margin-top: 5vw;"></div>
-<p>product works!</p>
+<div class="card text-center m-3 " *ngIf="productReturned != undefined">
+    <h3 class="card-header"><b>{{productReturned.Name}}</b></h3>
+    <div class="card-body ">
+        <mat-grid-list cols="4" rowHeight="200px">
+
+            <mat-grid-tile [colspan]="3" [rowspan]="1" class="d-flex flex-column">
+                <div class="d-flex flex-column align-items-start">
+                    <h2>Describtion</h2>
+                    <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                        book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <img [src]="productReturned.img" />
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+                <div class="d-flex justify-content-start w-100" style="font-size: 1.2vw;">
+                    <ul>
+                        <li style="margin-bottom:2vw; text-align:left"><b>Price :</b>{{productReturned.Price}}</li>
+                        <li><b>Resturant Name :</b>{{productReturned.resturantID.Name}}</li>
+                    </ul>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1 " [rowspan]="1 ">
+                <div class="share-button">
+                    <span>More </span>
+                    <a *ngIf="this.token" (click)="addToCart(productReturned._id)"><i class="fas fa-cart-plus"></i>Cart</a>
+                </div>
+            </mat-grid-tile>
+
+        </mat-grid-list>
+    </div>
+</div>

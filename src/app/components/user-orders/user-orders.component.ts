@@ -18,15 +18,19 @@ export class UserOrdersComponent implements OnInit {
   errCancel :Subscription
 
   ngOnInit(): void {
+
+    this.myService.getProfile()   
     this.orderSub=this.myService.profile.subscribe(res=>{
       
        this.myOrders=res["userOrders"]
       
     })
+
     this.errorSub= this.myService.error.subscribe(err=>{
       let error=err
       console.log(error);
     });
+    
     this.cancelsub=this.orderServ.order.subscribe(res=>{
       this.ngOnInit()
     } )
@@ -41,8 +45,7 @@ export class UserOrdersComponent implements OnInit {
 
 
   cancelOrder(orderId , userId){
-  console.log(orderId)
-  console.log(userId)
+    this.myOrders = this.myOrders.filter(item => item._id !== orderId)
    this.orderServ.cancelOrder(userId , orderId)
 
   }

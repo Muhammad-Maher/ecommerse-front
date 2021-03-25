@@ -27,11 +27,9 @@
                                     <span><h3 style="display: inline-block;">{{item.resturantID.Name}}</h3></span>
                                 </div>
 
-                                <!-- <a routerLink="/product/{{item.resturantID._id}}/{{item._id}}" class="btn btn-primary">See More</a> -->
-
                                 <div class="share-button">
                                     <span>More </span>
-                                    <a href="#"><i class="fas fa-info-circle"></i>Info</a>
+                                    <a [routerLinkActive]="[ 'exact:true'] " routerLink="/product/{{item._id}}"><i class="fas fa-info-circle"></i>Info</a>
                                     <a *ngIf="this.token" (click)="addToCart(item._id)"><i class="fas fa-cart-plus"></i>Cart</a>
                                 </div>
                             </div>

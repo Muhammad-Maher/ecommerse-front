@@ -36,11 +36,9 @@ export class AllProductsComponent implements OnInit {
       console.log(error)
     })
 
-
-     // console.log(this.promotionsList);
+     
      this.cartItemsSubscriber = this.cart.cartItems.subscribe((val)=>{
-      this.cartItems = val;
-      // console.log(val)
+      this.cartItems = val;     
      })
     
 

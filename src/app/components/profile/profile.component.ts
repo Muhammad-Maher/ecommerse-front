@@ -18,9 +18,7 @@ export class ProfileComponent implements OnInit {
     this.myService.getProfile()
     this.myProfile=this.myService.profile.subscribe(res=>{
       
-      this.userData=res["userData"]
-      
-      
+      this.userData=res["userData"]            
       
     })
     this.errorSub= this.myService.error.subscribe(err=>{

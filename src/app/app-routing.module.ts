@@ -54,7 +54,7 @@ const routes: Routes = [
   //maher
   {path:'addproduct',component:AddProductComponent},
   {path:'about',component:AboutComponent},//Y
-  {path:'product/:id/:pid',component:ProductComponent},
+  {path:'product/:id',component:ProductComponent},
   {path:'allProducts',component:AllProductsComponent},//Y
   {path:'cart',component:CartComponent},//Y
   {path:'userorder',component:UserOrdersComponent},

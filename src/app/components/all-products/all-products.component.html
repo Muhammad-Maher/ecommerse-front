@@ -30,7 +30,7 @@
 
                                 <div class="share-button">
                                     <span>More </span>
-                                    <a href="#"><i class="fas fa-info-circle"></i>Info</a>
+                                    <a [routerLinkActive]="[ 'exact:true'] " routerLink="/product/{{item._id}}"><i class="fas fa-info-circle"></i>Info</a>
                                     <a *ngIf="this.token" (click)="addToCart(item._id)"><i class="fas fa-cart-plus"></i>Cart</a>
                                 </div>
 

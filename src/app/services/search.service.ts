@@ -25,10 +25,8 @@ export class SearchService {
 getProductByname(name){
   // console.log(name)
 this.myclient.post(this.baseurl,{"searchWord":name}).subscribe(
-  res=>{
-    console.log(res)
-    this.searchSub.next(res)
-    this.router.navigate(['/search'])
+  res=>{   
+    this.searchSub.next(res)           
   }
   ,err=>
   {

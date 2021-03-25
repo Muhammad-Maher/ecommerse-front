@@ -21,6 +21,7 @@ export class EditProfileComponent implements OnInit {
   governorater
   country
   userSubscriber
+  selectedValue
   constructor(private myService:profile) { }
 
   ngOnInit(): void {
@@ -63,13 +64,15 @@ export class EditProfileComponent implements OnInit {
   //////////Submit
   onSubmit(){
     
+    console.log(this.signupForm.value.address)
     const form = { 
       "username":this.signupForm.value.username||this.username,
       "fname":this.signupForm.value.fname||this.fname, 
-      "lname":this.signupForm.value.lname||this.lname, 
-       "Address":this.signupForm.value.address||this.Address,
+      "lname":this.signupForm.value.lname||this.lname,      
         "Phone":this.signupForm.value.phone||this.Phone,
-        "mail":this.signupForm.value.email||this.mail            
+        "mail":this.signupForm.value.email||this.mail,            
+        "Address":this.signupForm.value.address||this.Address,            
+        "governorater":this.selectedValue||this.governorater           
       }
      
      
