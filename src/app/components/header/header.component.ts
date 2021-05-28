@@ -9,6 +9,7 @@ import { CartService } from '../../services/cart.service';
 import { textChangeRangeIsUnchanged } from 'typescript';
 import { filter } from 'rxjs/operators'
 import { profile } from '../../services/profile'
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,14 @@ import { profile } from '../../services/profile'
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router, private reload: AppComponent, private myService: Auth, private myservice: SearchService, private cart: CartService, private route: ActivatedRoute, private profile: profile) { }
+  constructor(private router: Router, private reload: AppComponent, private myService: Auth, private myservice: SearchService, private cart: CartService, private route: ActivatedRoute, private profile: profile,private translate: TranslateService) {
+    translate.addLangs(['en', 'ar']);
+   translate.setDefaultLang('en');
+   }
+   useLanguage(language: string) {
+    this.translate.use(language);
+  }
+  
   token = null
   myToken = null
   LogSub: Subscription;
@@ -32,19 +40,18 @@ export class HeaderComponent implements OnInit {
   adminCheck
   userProfile
   username
+  lastname
   isCollapsed = true;
   toggleCollapsed(): void {
     this.isCollapsed = !this.isCollapsed;
   }
   
   ngOnInit(): void {
-    console.log("Headers")
+  
     this.token = localStorage.getItem("token");
     this.LogSub = this.myService.logedUser.subscribe(res => {
 
       this.ngOnInit()
-
-
 
     })
 
@@ -75,9 +82,15 @@ export class HeaderComponent implements OnInit {
     this.userProfile = this.profile.profile.subscribe(res => {     
       this.adminCheck = res["userData"].status;   
       this.username = res["userData"].username;
+      this.lastname = res["userData"].lname;
     })
 
 
+  }
+
+  translateLanguage(selectedlanguage){
+    console.log('here');
+    this.translate.use(selectedlanguage);
   }
 
 

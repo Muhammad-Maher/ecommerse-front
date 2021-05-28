@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Home": "الرئيسية",
+        "About": "عن الموقع",
+        "Cart": "عربة التسوق",
+        "UserOrder": "طلبات العميل",
+        "Profile": "الملف الشخصى",
+        "Promotions": "العروض",
+        "LogOut": "تسجيل الخروج",
+        "Sign Up": "انشاء حساب",
+        "Welcome": "مرحبا",
+        "Log in": "تسجيل دخول",
+        "Languages": "اللغات",
+        "Search": "بحث",
+        "ElAkeeel": "الاكيل",
+        "Product options": "خيارات المنتجات",
+        "AddProduct": "اضافة مننتج",
+        "modifyProduct": "تعديل منتج",
+        "DeleteProduct": "مسح منتج",
+        "Arabic": "العربية",
+        "English": "الانجليزية"
+    }
+
+}

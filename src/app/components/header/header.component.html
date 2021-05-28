@@ -1,79 +1,212 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand " href="#">ElAkeeel</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleCollapsed()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex align-items-center">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">{{ "Header.ElAkeeel" | translate }}</a>
 
-                <li class="nav-item">
-                    <a class="nav-link active" [routerLinkActive]="['exact:true']" routerLink="allProducts">Home <span
-                        class="sr-only">(current)</span></a>
-                </li>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="toggleCollapsed()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-                <li class="nav-item">
-                    <a class="nav-link " [routerLinkActive]="['exact:true']" routerLink="/about">About</a>
-                </li>
+    <div
+      class="collapse navbar-collapse"
+      id="navbarSupportedContent"
+      [ngbCollapse]="isCollapsed"
+    >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex align-items-center">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            [routerLinkActive]="['exact:true']"
+            routerLink="allProducts"
+            >{{ "Header.Home" | translate }}
+            <span class="sr-only">(current)</span></a
+          >
+        </li>
 
-                <li *ngIf="this.token" class="nav-item">
-                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/cart">Cart</a>
-                </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLinkActive]="['exact:true']"
+            routerLink="/about"
+            >{{ "Header.About" | translate }}</a
+          >
+        </li>
 
-                <li *ngIf="this.token" class="nav-item">
-                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/userorder">UserOrder</a>
-                </li>
+        <li *ngIf="this.token" class="nav-item">
+          <a
+            class="nav-link mr-3"
+            [routerLinkActive]="['exact:true']"
+            routerLink="/cart"
+            >{{ "Header.Cart" | translate }}</a
+          >
+        </li>
 
-                <li *ngIf="this.token" class="nav-item">
-                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/profile">Profile</a>
-                </li>
+        <li *ngIf="this.token" class="nav-item">
+          <a
+            class="nav-link mr-3"
+            [routerLinkActive]="['exact:true']"
+            routerLink="/userorder"
+            >{{ "Header.UserOrder" | translate }}</a
+          >
+        </li>
 
-                <li class="nav-item">
-                    <a class="nav-link mr-3" [routerLinkActive]="['exact:true']" routerLink="/promotions">Promotions</a>
-                </li>
+        <li *ngIf="this.token" class="nav-item">
+          <a
+            class="nav-link mr-3"
+            [routerLinkActive]="['exact:true']"
+            routerLink="/profile"
+            >{{ "Header.Profile" | translate }}</a
+          >
+        </li>
 
-                <li *ngIf="this.token && this.adminCheck == 'admin'" class="nav-item mr-3 mb-3">
-                    <div ngbDropdown class="d-inline-block">
-                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Product options</button>
-                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <li class="nav-item">
+          <a
+            class="nav-link mr-3"
+            [routerLinkActive]="['exact:true']"
+            routerLink="/promotions"
+            >{{ "Header.Promotions" | translate }}</a
+          >
+        </li>
 
+        <li
+          *ngIf="this.token && this.adminCheck == 'admin'"
+          class="nav-item mr-3 mb-3"
+        >
+          <div ngbDropdown class="d-inline-block">
+            <button
+              class="btn btn-outline-primary"
+              id="dropdownBasic1"
+              ngbDropdownToggle
+            >
+              {{ "Header.Product options" | translate }}
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <a
+                ngbDropdownItem
+                class="nav-link mr-3"
+                [routerLinkActive]="['exact:true']"
+                routerLink="/addproduct"
+                >{{ "Header.AddProduct" | translate }}</a
+              >
 
+              <a
+                ngbDropdownItem
+                class="nav-link mr-3"
+                [routerLinkActive]="['exact:true']"
+                routerLink="/modifyProduct"
+                >{{ "Header.modifyProduct" | translate }}</a
+              >
 
-                            <a ngbDropdownItem class="nav-link mr-3  " [routerLinkActive]="[ 'exact:true'] " routerLink="/addproduct">AddProduct</a>
+              <a
+                ngbDropdownItem
+                class="nav-link mr-3"
+                [routerLinkActive]="['exact:true']"
+                routerLink="/DeleteProduct"
+                >{{ "Header.DeleteProduct" | translate }}</a
+              >
+            </div>
+          </div>
+        </li>
 
-                            <a ngbDropdownItem class="nav-link mr-3  " [routerLinkActive]="[ 'exact:true'] " routerLink="/modifyProduct">modifyProduct</a>
+        <li class="nav-item mr-3 mb-3">
+          <div ngbDropdown class="d-inline-block">
+            <button
+              class="btn btn-outline-primary"
+              id="dropdownBasic1"
+              ngbDropdownToggle
+            >
+              {{ "Header.Languages" | translate }}
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <a
+                ngbDropdownItem
+                class="nav-link mr-3"
+                (click)="translateLanguage('en')"
+                >{{ "Header.English" | translate }}</a
+              >
 
-                            <a ngbDropdownItem class="nav-link mr-3  " [routerLinkActive]="[ 'exact:true'] " routerLink="/DeleteProduct">DeleteProduct</a>
-                        </div>
-                    </div>
-                </li>
+              <a
+                ngbDropdownItem
+                class="nav-link mr-3"
+                (click)="translateLanguage('ar')"
+                >{{ "Header.Arabic" | translate }}</a
+              >
+            </div>
+          </div>
+        </li>
 
+        <li *ngIf="!this.token" class="nav-item mr-3 mb-3">
+          <a
+            class="btn btn-outline-primary"
+            [routerLinkActive]="['exact:true']"
+            routerLink="/login"
+            >{{ "Header.Log in" | translate }}</a
+          >
+        </li>
 
+        <li *ngIf="!this.token" class="nav-item mb-3">
+          <a
+            class="btn btn-outline-primary"
+            [routerLinkActive]="['exact:true']"
+            routerLink="/signup"
+            >{{ "Header.Sign Up" | translate }}</a
+          >
+        </li>
 
-                <li *ngIf="!this.token" class="nav-item mr-3 mb-3">
-                    <a class="btn btn-outline-primary " [routerLinkActive]="[ 'exact:true'] " routerLink="/login">Log in</a>
-                </li>
+        <li class="nav-item mb-3" *ngIf="this.token">
+          <button
+            type="button "
+            class="btn btn-outline-primary"
+            (click)="logOut()"
+          >
+            {{ "Header.LogOut" | translate }}
+          </button>
+        </li>
+      </ul>
 
-                <li *ngIf="!this.token " class="nav-item mb-3">
-                    <a class="btn btn-outline-primary " [routerLinkActive]="[ 'exact:true'] " routerLink="/signup">Sign Up</a>
-                </li>
-
-                <li class="nav-item mb-3" *ngIf="this.token">
-                    <button type="button " class="btn btn-outline-primary " (click)="logOut() ">LogOut</button>
-                </li>
-
-            </ul>
-
-            <form class="d-flex ml-3 align-items-center " [formGroup]="myform">
-                <input class="form-control me-2 inputSearch " formControlName="body" (mousedown)="checkToken()" type="search " placeholder="Search" aria-label="Search ">
-                <button class="btn btn-dark" type="submit" (click)="getProductsByName()">Search</button>
-                <a *ngIf="this.token" [routerLinkActive]="[ 'exact:true'] " routerLink="/cart" class="ml-3">
-                    <i class="fas fa-shopping-cart cart"><span class="badge badge-pill badge-primary ml-2 cartBadge ">{{cartItems }}</span></i>
-                </a>
-            </form>
-            <h1 style="margin-left: 50px;margin-top: 10px;">
-                <b>Welcome</b> {{username}}
-            </h1>
-        </div>
+      <!-- <form class="d-flex ml-3 align-items-center" [formGroup]="myform">
+        <input
+          class="form-control me-2 inputSearch"
+          formControlName="body"
+          (mousedown)="checkToken()"
+          type="search "
+          placeholder="{{ 'Header.Search' | translate }}"
+          aria-label="Search "
+        />
+        <button
+          class="btn btn-dark"
+          type="submit"
+          (click)="getProductsByName()"
+        >
+          {{ "Header.Search" | translate }}
+        </button>
+        <a
+          *ngIf="this.token"
+          [routerLinkActive]="['exact:true']"
+          routerLink="/cart"
+          class="ml-3"
+        >
+          <i class="fas fa-shopping-cart cart"
+            ><span class="badge badge-pill badge-primary ml-2 cartBadge">{{
+              cartItems
+            }}</span></i
+          >
+        </a>
+      </form> -->
+      <!-- <h1
+        *ngIf="this.token"
+        style="margin-left: 50px; margin-top: 5px; font-size: small"
+      >
+        <b>{{ "Header.Welcome" | translate }}</b> {{ lastname }}
+      </h1> -->
     </div>
+  </div>
 </nav>

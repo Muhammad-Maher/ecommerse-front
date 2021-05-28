@@ -3,8 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module'; // CLI imports AppRoutingModule
 import { CommonModule } from '@angular/common'; 
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
- 
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { Routes, RouterModule } from '@angular/router';
@@ -65,25 +69,14 @@ import { DeleteProductComponent } from './components/delete-product/delete-produ
 import { AllusersOrdersComponent } from './components/allusers-orders/allusers-orders.component';
 
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 
 @NgModule({
 
-  imports: [
-    BrowserModule,    
-    AppRoutingModule,
-    HttpClientModule,
-    CommonModule,
-    ReactiveFormsModule,
-    FormsModule,
-    RouterModule,
-    BrowserAnimationsModule,
-    MatPaginatorModule,
-    NgbModule,
-    MatGridListModule,
-    MatButtonToggleModule,
-    MatButtonModule
-            
-  ],
+ 
 
   declarations: [
     AppComponent,
@@ -110,14 +103,32 @@ import { AllusersOrdersComponent } from './components/allusers-orders/allusers-o
     SearchComponent,
     ModifyproductComponent,
     DeleteProductComponent,
-    AllusersOrdersComponent
+    AllusersOrdersComponent,
+    
     
 ],
-
- 
-  
- 
- 
+imports: [
+  BrowserModule,    
+  AppRoutingModule,
+  HttpClientModule,
+  CommonModule,
+  ReactiveFormsModule,
+  FormsModule,
+  RouterModule,
+  BrowserAnimationsModule,
+  MatPaginatorModule,
+  NgbModule,
+  MatGridListModule,
+  MatButtonToggleModule,
+  MatButtonModule,
+  TranslateModule.forRoot({
+    loader: {
+      provide: TranslateLoader,
+      useFactory: HttpLoaderFactory,
+      deps: [HttpClient],
+    },
+  }),       
+],
   providers: [
     ProductService,
     NavigationService,
@@ -128,4 +139,6 @@ import { AllusersOrdersComponent } from './components/allusers-orders/allusers-o
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
+

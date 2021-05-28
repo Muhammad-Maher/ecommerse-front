@@ -1,77 +1,74 @@
-<div class="container " style="margin-top: 6vw;">
-    <div class="heading">
-        <h1>
-            <span class="shopper">e food</span> Shopping Cart
-        </h1>
+<div style="margin-top: 7vw"></div>
+<div class="container" style="margin-top: 6vw">
+  <div class="heading">
+    <h1><span class="shopper">e food</span> Shopping Cart</h1>
 
-        <a (click)="return()" class="visibility-cart transition is-open">X</a>
+    <a (click)="return()" class="visibility-cart transition is-open">X</a>
+  </div>
+
+  <div class="cart transition is-open">
+    <!-- <a href="#" class="btn btn-update">Update cart</a> -->
+
+    <div class="table">
+      <div class="layout-inline row th">
+        <div class="col col-pro">Product</div>
+        <div class="col col-price align-center">Price</div>
+        <div class="col col-qty align-center">status</div>
+        <div class="col col-qty align-center">resturant</div>
+        <div class="col col-qty align-center"></div>
+      </div>
+      <div
+        class="text-center"
+        *ngFor="let item of items?.productID; let i = index"
+      >
+        <div
+          class="layout-inline row"
+          [ngClass]="i % 2 == 0 ? 'row' : 'row-bg2'"
+        >
+          <div class="col col-pro layout-inline">
+            <div class="d-flex-column text-center">
+              <p>{{ item.Name }}</p>
+              <img [src]="item.img" alt="item.productID.Name " />
+            </div>
+          </div>
+
+          <div class="col col-price col-numeric align-center">
+            <p>{{ item.Price }}</p>
+          </div>
+
+          <div class="col col-pro layout-inline">
+            <p>{{ item.status }}</p>
+          </div>
+          <div class="col col-pro layout-inline text-center">
+            <p>{{ item.resturantID.Name }}</p>
+          </div>
+          <div class="col col-pro layout-inline text-center">
+            <a (click)="removeProduct(item._id, i)"
+              ><i class="fas fa-trash" style="font-size: 1.5rem"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tf">
+        <div class="row layout-inline text-center">
+          <div class="col">
+            <p>Total</p>
+          </div>
+          <div class="col" style="font-size: 1.5rem">{{ total }}</div>
+        </div>
+      </div>
     </div>
 
-    <div class="cart transition is-open">
-
-        <!-- <a href="#" class="btn btn-update">Update cart</a> -->
-
-
-        <div class="table">
-
-            <div class="layout-inline row th">
-                <div class="col col-pro">Product</div>
-                <div class="col col-price align-center ">
-                    Price
-                </div>
-                <div class="col col-qty align-center">status</div>
-                <div class="col col-qty align-center">resturant</div>
-                <div class="col col-qty align-center"></div>
-
-            </div>
-            <div class="text-center" *ngFor="let item of items?.productID; let i =index">
-
-                <div class="layout-inline row" [ngClass]="i%2 == 0 ? 'row':'row-bg2'">
-
-                    <div class="col col-pro layout-inline">
-                        <div class="d-flex-column  text-center">
-                            <p>{{item.Name}}</p>
-                            <img [src]=" item.img " alt="item.productID.Name " />
-                        </div>
-                    </div>
-
-                    <div class="col col-price col-numeric align-center ">
-                        <p>{{item.Price}}</p>
-                    </div>
-
-                    <div class="col col-pro layout-inline ">
-
-                        <p>{{item.status}}</p>
-                    </div>
-                    <div class="col col-pro layout-inline text-center">
-
-                        <p>{{item.resturantID.Name}}</p>
-                    </div>
-                    <div class="col col-pro layout-inline text-center">
-
-                        <a (click)="removeProduct(item._id,i)"><i class="fas fa-trash" style="font-size: 1.5rem; "></i></a>
-                    </div>
-
-
-                </div>
-            </div>
-
-
-
-
-            <div class=" tf ">
-                <div class="row layout-inline text-center ">
-                    <div class="col ">
-                        <p>Total</p>
-                    </div>
-                    <div class="col " style="font-size: 1.5rem; ">{{total}}</div>
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="d-flex align-items-center justify-content-center">
-            <button mat-stroked-button class="mkOrderBtn" color="primary" (click)="btnClick($event)">Make Order</button>
-        </div>
+    <div class="d-flex align-items-center justify-content-center">
+      <button
+        mat-stroked-button
+        class="mkOrderBtn"
+        color="primary"
+        (click)="btnClick($event)"
+      >
+        Make Order
+      </button>
     </div>
+  </div>
+</div>

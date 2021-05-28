@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Home": "Home",
+        "About": "About ",
+        "Cart": "Cart",
+        "UserOrder": "UserOrder",
+        "Profile": "Profile",
+        "Promotions": "Promotions",
+        "LogOut": "LogOut",
+        "Sign Up": "Sign Up",
+        "Welcome": "Welcome",
+        "Log in": "Log in",
+        "Languages": "Languages",
+        "Search": "Search",
+        "ElAkeeel": "ElAkeeel",
+        "Product options": "Product options",
+        "AddProduct": "AddProduct",
+        "modifyProduct": "modifyProduct",
+        "DeleteProduct": "DeleteProduct",
+        "Arabic": "Arabic",
+        "English": "English"
+    }
+
+}

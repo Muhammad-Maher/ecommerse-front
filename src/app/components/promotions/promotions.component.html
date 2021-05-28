@@ -1,50 +1,81 @@
-<div style="margin-top: 5vw;"></div>
-<div class="container ">
-
-    <div class="card text-center m-3 ">
-        <h3 class="card-header">Promotions</h3>
-        <div class="card-body">
-            <div class="row d-flex justify-content-center align-items-center" *ngIf="promotionsList && promotionsList[0]">
-                <div class="row d-flex justify-content-center align-items-center w-100 m-4">
-                    <mat-paginator (page)="onPageChange($event)" [length]="100" [pageSize]="6" [pageSizeOptions]="[3, 6, 24, 
-                    18]"></mat-paginator>
-                </div>
-                <div class="row w-100">
-
-
-                    <div class="col-sm-4 d-flex justify-content-center align-items-center" *ngFor="let item of items ; let i = index">
-                        <div class="card mb-4" style="width: 18rem;" *ngIf="i < 6 ">
-                            <img [src]="item.img" class="card-img-top  card-img-top" [alt]="item.name">
-                            <div class="card-body text-center d-flex flex-column align-items-center justify-content-center">
-                                <h3 class="card-title">{{item.Name}}</h3>
-                                <p class="card-text"><i class="fas fa-tags"></i> {{item.status}} | price:{{item.Price}} </p>
-                                <p>
-                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here,
-                                    content here', making it look like readable English.
-                                </p>
-                                <div>
-                                    <i class="fas fa-utensils mr-2"></i>
-                                    <span><h3 style="display: inline-block;">{{item.resturantID.Name}}</h3></span>
-                                </div>
-
-                                <div class="share-button">
-                                    <span>More </span>
-                                    <a [routerLinkActive]="[ 'exact:true'] " routerLink="/product/{{item._id}}"><i class="fas fa-info-circle"></i>Info</a>
-                                    <a *ngIf="this.token" (click)="addToCart(item._id)"><i class="fas fa-cart-plus"></i>Cart</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-
-
-
-
-            </div>
-
+<div style="margin-top: 5vw"></div>
+<div class="container">
+  <div class="card text-center m-3">
+    <h3 class="card-header">Promotions</h3>
+    <div class="card-body">
+      <div
+        class="row d-flex justify-content-center align-items-center"
+        *ngIf="promotionsList && promotionsList[0]"
+      >
+        <div
+          class="row d-flex justify-content-center align-items-center w-100 m-4"
+        >
+          <mat-paginator
+            (page)="onPageChange($event)"
+            [length]="100"
+            [pageSize]="6"
+            [pageSizeOptions]="[3, 6, 24, 18]"
+          ></mat-paginator>
         </div>
-    </div>
+        <div class="row w-100">
+          <div
+            class="col-sm-4 d-flex justify-content-center align-items-center"
+            *ngFor="let item of items; let i = index"
+          >
+            <div class="card mb-4" style="width: 18rem" *ngIf="i < 6">
+              <img
+                [src]="item.img"
+                class="card-img-top card-img-top"
+                [alt]="item.name"
+              />
+              <div
+                class="
+                  card-body
+                  text-center
+                  d-flex
+                  flex-column
+                  align-items-center
+                  justify-content-center
+                "
+              >
+                <h3 class="card-title">{{ item.Name }}</h3>
+                <p class="card-text">
+                  <i class="fas fa-tags"></i> {{ item.status }} | price:{{
+                    item.Price
+                  }}
+                </p>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book.
+                </p>
+                <div>
+                  <i class="fas fa-utensils mr-2"></i>
+                  <span
+                    ><h3 style="display: inline-block">
+                      {{ item.resturantID.Name }}
+                    </h3></span
+                  >
+                </div>
 
+                <div class="share-button">
+                  <span>More </span>
+                  <a
+                    [routerLinkActive]="['exact:true']"
+                    routerLink="/product/{{ item._id }}"
+                    ><i class="fas fa-info-circle"></i>Info</a
+                  >
+                  <a *ngIf="this.token" (click)="addToCart(item._id)"
+                    ><i class="fas fa-cart-plus"></i>Cart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
