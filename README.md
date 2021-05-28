@@ -1,13 +1,19 @@
 E-Commerce Website for ordering food online
 
-user can see all the available products from all restaurants and all the promotions without registering
+:point_right: user can see all the available products from all restaurants and all the promotions without registering  :pizza: :poultry_leg: :sandwich:
 
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Promotions and products](Gifs/2.gif)
 
-user Can register and login and make orders
 
- ![Alt Text](https://res.cloudinary.com/ecommerce-food/image/upload/v1622173677/Github%20Gif/e-commerce_AlAkeel/1_vzpcvl.gif)
+
+:point_right: user Can register and login and make orders <img src="Gifs/3.svg" width="20" height="20" />
+
+ ![Add to cart and make order](Gifs/1.gif)
 
 
 Images using :
-              https://unsplash.com/s/photos/pizza
+              https://unsplash.com/
+     
+Cart template :
+              https://speckyboy.com/free-shopping-cart-css-javascript/
+
