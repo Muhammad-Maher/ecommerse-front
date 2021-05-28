@@ -3,7 +3,7 @@
         "Home": "Home",
         "About": "About ",
         "Cart": "Cart",
-        "UserOrder": "UserOrder",
+        "UserOrder": "User Order",
         "Profile": "Profile",
         "Promotions": "Promotions",
         "LogOut": "LogOut",
@@ -12,13 +12,12 @@
         "Log in": "Log in",
         "Languages": "Languages",
         "Search": "Search",
-        "ElAkeeel": "ElAkeeel",
+        "Efood": "e food",
         "Product options": "Product options",
-        "AddProduct": "AddProduct",
-        "modifyProduct": "modifyProduct",
-        "DeleteProduct": "DeleteProduct",
+        "AddProduct": "Add Product",
+        "modifyProduct": "modify Product",
+        "DeleteProduct": "Delete Product",
         "Arabic": "Arabic",
         "English": "English"
     }
-
 }
